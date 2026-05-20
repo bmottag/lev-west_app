@@ -2,7 +2,7 @@
 <div class="modal-header">
 	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 	<h4 class="modal-title" id="exampleModalLabel">Company Form
-		<br><small>Add/Edit Company to use in the Hauling Module.</small>
+		<br><small>Add New or Edit a Existing Hauling Company.</small>
 	</h4>
 </div>
 
@@ -42,7 +42,7 @@
 			</div>
 			<div class="col-sm-12">
 				<div class="form-group text-left">
-					<label class="control-label" for="email">Does hauling?</label>
+					<label class="control-label" for="email">Provides Haul Services?</label>
 					<select name="does_hauling" id="does_hauling" class="form-control">
 						<option value=2 <?php if ($information && $information[0]["does_hauling"] == 2) {
 											echo "selected";

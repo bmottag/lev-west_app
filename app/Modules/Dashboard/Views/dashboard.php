@@ -44,7 +44,7 @@
 			<div class="panel panel-primary">
 				<div class="panel-heading">
 					<h4 class="list-group-item-heading">
-						DASHBOARD
+						Work Space
 					</h4>
 				</div>
 			</div>
@@ -129,14 +129,14 @@
 	<div class="row">
 		<div class="col-lg-3 col-md-6">
 			<a class="btn btn-block btn-social btn-primary" href="#anclaPayroll">
-				<i class="fa fa-book"></i> <b> Last Payroll Records </b>
+				<i class="fa fa-book"></i> <b> Clock in/out Records </b>
 			</a>
 		</div>
 
 		<?php if ($infoSafety) {  ?>
 			<div class="col-lg-3 col-md-6">
 				<a class="btn btn-block btn-social btn-info" href="#anclaSafety">
-					<i class="fa fa-life-saver"></i> <b> Last FLHA Records </b>
+					<i class="fa fa-life-saver"></i> <b> Most Recent FHE Report </b>
 				</a>
 			</div>
 		<?php } ?>
@@ -152,7 +152,7 @@
 		<?php if ($noHauling) {  ?>
 			<div class="col-lg-3 col-md-6">
 				<a class="btn btn-block btn-social btn-warning" href="<?php echo base_url('dashboard/hauling'); ?>">
-					<i class="fa fa-truck"></i> <b> Last Hauling Records </b>
+					<i class="fa fa-truck"></i> <b> Most Recent Haul Ticket Report </b>
 				</a>
 			</div>
 		<?php } ?>
@@ -372,7 +372,7 @@
 		<div class="col-lg-12">
 			<div class="panel panel-primary">
 				<div class="panel-heading">
-					<i class="fa fa-book fa-fw"></i> <b>Last Payroll Records</b>
+					<i class="fa fa-book fa-fw"></i> <b>Clock in/out Records</b>
 				</div>
 				<!-- /.panel-heading -->
 				<div class="panel-body">

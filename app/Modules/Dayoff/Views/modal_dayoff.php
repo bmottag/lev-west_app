@@ -1,8 +1,8 @@
 <script type="text/javascript" src="<?php echo base_url("assets/js/validate/dayoff/dayoffModal.js?v=2.0.0"); ?>"></script>
 <div class="modal-header">
 	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-	<h4 class="modal-title" id="exampleModalLabel">DAY OFF
-	<br><small>As a reminder you need 72 hours for a regular dayoff or 24 hours in advanced for a Family/medical.</small>
+	<h4 class="modal-title" id="exampleModalLabel">Day's OFF
+	<br><small>Quick reminder ⏰: you need 72 hours’ notice for a regular day off, or 24 hours’ notice for a family/medical request. 😊.</small>
 	</h4>
 </div>
 
@@ -25,7 +25,7 @@
 		<div class="row">
 			<div class="col-sm-12">		
 				<div class="form-group text-left">
-					<label class="control-label" for="attachment_number">Observation : *</label>
+					<label class="control-label" for="observation">Give us a quick Description: *</label>
 					<textarea id="observation" name="observation" class="form-control" rows="3"></textarea>
 				</div>
 			</div>

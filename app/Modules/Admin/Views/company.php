@@ -24,11 +24,11 @@
 		<div class="col-lg-12">
 			<div class="panel panel-primary">
 				<div class="panel-heading">
-					<i class="fa fa-suitcase"></i> SETTINGS - COMPANY LIST
+					<i class="fa fa-suitcase"></i> Settings - Subs or Suppliers List
 				</div>
 				<div class="panel-body">
 					<button type="button" class="btn btn-outline btn-primary btn-block" data-toggle="modal" data-target="#modal" id="x">
-						<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add a Company
+						<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add a New Company
 					</button><br>
     <?php
 	$session = session();
@@ -61,11 +61,11 @@
 						<table width="100%" class="table table-striped table-bordered table-hover" id="dataTables">
 							<thead>
 								<tr>
-									<th class="text-center">Company</th>
-									<th class="text-center">Contact</th>
-									<th class="text-center">Movil</th>
+									<th class="text-center">Company Name</th>
+									<th class="text-center">Key Contact</th>
+									<th class="text-center">Mobile Number</th>
 									<th class="text-center">Email</th>
-									<th class="text-center">Does hauling?</th>
+									<th class="text-center">Mobile Number</th>
 									<th class="text-center">Edit</th>
 								</tr>
 							</thead>

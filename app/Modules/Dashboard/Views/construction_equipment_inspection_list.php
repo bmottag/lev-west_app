@@ -7,7 +7,7 @@
 			<div class="panel panel-danger">
 				<div class="panel-heading">
 					<a class="btn btn-danger btn-xs" href=" <?php echo base_url($dashboardURL); ?> "><span class="glyphicon glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Go back </a> 
-					<i class="fa fa-search"></i> <strong>LAST CONSTRUCTION EQUIPMENT INSPECTION RECORDS</strong>
+					<i class="fa fa-search"></i> <strong>Most Recent Construction Equipment Inspection Records</strong>
 				</div>
 				<div class="panel-body">
 							
@@ -18,14 +18,14 @@
 						<div class="col-lg-12">
 							<div class="alert alert-danger">
 								<strong>Attention: </strong>
-								The unit's inspection shows  a comment and an item "fail", please review it ASAP.
+								The unit inspection a comment and failed item. Please review it as soon as Posible.
 							</div>
 						</div>
 						
 						<div class="col-lg-12">
 							<div class="alert alert-warning">
 								<strong>Attention: </strong>
-								There is a "fail" item in today's unit inspection.
+								Today's unit inspection includes a failed item.
 							</div>
 						</div>
 					</div>

@@ -59,7 +59,7 @@
 						<table width="100%" class="table table-striped table-bordered table-hover small" id="dataTables">
 							<thead>
 								<tr class="headings">
-									<th class="column-title" colspan="3">-- Work Orders Descriptions --</th>
+									<th class="column-title" colspan="3">-- Work Tickets Descriptions --</th>
 								</tr>
 								<tr>
 									<th class='text-center'>W.O. #</th>

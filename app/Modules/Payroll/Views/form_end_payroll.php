@@ -88,8 +88,8 @@
 		<div class="col-lg-12">
 			<div class="panel panel-default">
 				<div class="panel-heading">
-					<i class="fa fa-book"></i> <strong>RECORD TASK(S) - PAYROLL</strong>
-					<br><small>Time Stamp - Finish</small>
+					<i class="fa fa-book"></i> <strong>Clock In/Out</strong>
+					<br><small>Clock Out</small>
 				</div>
 				<div class="panel-body">
 
@@ -98,13 +98,13 @@
 						<input type="hidden" id="hddStart" name="hddStart" value="<?php echo $start; ?>" />
 
 						<div class="alert alert-info">
-							<strong>Job Code/Name: </strong><?php echo $record[0]["job_start"] ?><br>
+							<strong>Project Code: </strong><?php echo $record[0]["job_start"] ?><br>
 							<strong>Employee: </strong><?php echo $record[0]["first_name"] . " " . $record[0]["last_name"] ?><br>
 							<strong>Date & Time In: </strong><?php echo $record[0]["start"] ?>
 						</div>
 
 						<div class="form-group">
-							<label class="col-sm-4 control-label" for="address">Address: </label>
+							<label class="col-sm-4 control-label" for="address">Satellite Location: </label>
 							<div class="col-sm-4">
 								<input id="viewaddress" name="viewaddress" class="form-control" type="text" disabled>
 								<input id="latitud" name="latitud" type="hidden">
@@ -129,9 +129,9 @@
 						<input id="job_start" name="job_start" type="hidden" value="<?php echo $record[0]["fk_id_job"] ?>">
 						<input id="job_start_name" name="job_start_name" type="hidden" value="<?php echo $record[0]["job_start"] ?>">
 						<div class="form-group">
-							<label class="col-sm-4 control-label" for="jobName">Job Code/Name:
+							<label class="col-sm-4 control-label" for="jobName">Venture Code:
 								<?php if ($job_programming) { ?>
-									<p class="help-block">Are you <b>logging OUT</b> under this Job Code/Name?</p>
+									<p class="help-block">Are you <b>logging OUT</b> under this Project Code?</p>
 								<?php } ?>
 							</label>
 							<div class="col-sm-5">
@@ -154,7 +154,7 @@
 						</div>
 
 						<div class="form-group">
-							<label class="col-sm-4 control-label" for="taskDescription">Observation: </label>
+							<label class="col-sm-4 control-label" for="taskDescription">Tell us about your day: </label>
 							<div class="col-sm-5">
 								<textarea id="observation" name="observation" class="form-control" rows="3"></textarea>
 							</div>
@@ -195,13 +195,7 @@
 						<div class="form-group">
 							<div class="col-sm-10 col-sm-offset-1">
 								<div class="alert alert-danger">
-									By submiting this form, I certify that the unit is fit to be used for the next day.
-									Otherwise write an observation.
-								</div>
-
-								<div class="alert alert-danger">
-									Al enviar este formulario, certifico que la unidad esta en condiciones de ser utilizada para el día siguiente.
-									De otra manera escriba una observación.
+									Is the unit you used today in good conditions to work tomorrow?
 								</div>
 							</div>
 						</div>

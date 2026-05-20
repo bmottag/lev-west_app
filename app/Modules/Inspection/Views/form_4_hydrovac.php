@@ -273,7 +273,7 @@ $idVehicle = $vehicleInfo[0]["id_vehicle"];
 								});
 							</script>
 							<div class="form-group">
-								<label class="col-sm-4 control-label" for="date">Date of Issue</label>
+								<label class="col-sm-4 control-label" for="date">Issued Date</label>
 								<div class="col-sm-5">
 									<input type="text" class="form-control" id="date" name="date" value="<?php echo $information ? $information[0]["date_issue"] : ""; ?>" placeholder="Date of Issue" />
 								</div>

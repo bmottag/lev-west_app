@@ -4,7 +4,7 @@
 		<div class="col-lg-12">
 			<div class="panel panel-dark">
 				<div class="panel-heading">
-					<i class="fa fa-briefcase"></i> <strong>Accounting Control Sheet (ACS) - Income for all Job Codes/Names</strong>
+					<i class="fa fa-briefcase"></i> <strong>W.Ticket Expenses Control - Total Income Venture's Codes</strong>
 				</div>
 				<div class="panel-body small">
 
@@ -12,14 +12,14 @@
 						<table width="100%" class="table table-striped table-bordered table-hover" id="dataTables">
 							<thead>
 								<tr>
-									<th class="text-center">Job Code/Name</th>
-									<th class="text-center">Numbers of W.O.</th>
-									<th class="text-center">Numbers of Personal Hours</th>
-									<th class="text-center">Personal Income</th>
+									<th class="text-center">Venture Code</th>
+									<th class="text-center">Total of Work Tickets.</th>
+									<th class="text-center">Total Manpower Hours </th>
+									<th class="text-center">Manpower Income</th>
 									<th class="text-center">Material Income</th>
-									<th class="text-center">Receipt Income</th>
-									<th class="text-center">Equipment Income</th>
-									<th class="text-center">Subcontractor Income</th>
+									<th class="text-center">Purchase Slip Income</th>
+									<th class="text-center">Machinery Income</th>
+									<th class="text-center">Sub-contractor Income</th>
 									<th class="text-center">Total Income</th>
 									<th class="text-center">Download</th>
 								</tr>

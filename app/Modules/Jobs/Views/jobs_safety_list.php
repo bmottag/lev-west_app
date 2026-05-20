@@ -4,7 +4,7 @@
 		<div class="col-lg-12">
 			<div class="panel panel-info">
 				<div class="panel-heading">
-					<a class="btn btn-info btn-xs" href=" <?php echo base_url($dashboardURL); ?> "><span class="glyphicon glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Go to Dashboard </a> 
+					<a class="btn btn-info btn-xs" href=" <?php echo base_url($dashboardURL); ?> "><span class="glyphicon glyphicon glyphicon-chevron-left" aria-hidden="true"></span> My Work Space </a> 
 					<i class="fa fa-life-saver"></i> <b>SAFETY</b>
 				</div>
 				<div class="panel-body">

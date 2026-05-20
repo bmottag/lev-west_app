@@ -598,7 +598,7 @@
 		<div class="col-lg-12">
 			<div class="panel panel-primary">
 				<div class="panel-heading">
-					<i class="fa fa-beer"></i> <b>SUBCONTRACTOR</b>
+					<i class="fa fa-beer"></i> <b>SUb-Contractor</b>
 				</div>
 				<div class="panel-body">
 					<div class="col-lg-12">

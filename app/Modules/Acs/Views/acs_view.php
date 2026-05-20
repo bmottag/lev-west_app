@@ -86,14 +86,14 @@
 		<div class="col-lg-6">
 			<div class="panel panel-dark">
 				<div class="panel-heading">
-					<i class="fa fa-edit"></i> <strong>Accounting Control Sheet (ACS) - GENERAL INFORMATION</strong>
+					<i class="fa fa-edit"></i> <strong>WT's Expense Control - General Information</strong>
 				</div>
 				<div class="panel-body">
 					<a href='<?php echo base_url('workorders/add_workorder/' . $acs_info[0]["fk_id_workorder"]); ?>"'>W.O. # <?php echo $acs_info[0]["fk_id_workorder"]; ?> </a><br>
-					<strong>ACS Date: </strong><?php echo $acs_info[0]["date"]; ?><br>
-					<strong>Job Code/Name: </strong><br><?php echo $acs_info[0]["job_description"]; ?><br>
+					<strong>WEC Date: </strong><?php echo $acs_info[0]["date"]; ?><br>
+					<strong>Venture Code: </strong><br><?php echo $acs_info[0]["job_description"]; ?><br>
 					<strong>Foreman: </strong><?php echo $acs_info[0]["foreman_name_wo"]; ?><br>
-					<strong>Work Done: </strong><br><?php echo $acs_info[0]["observation"]; ?>
+					<strong>Work Completed: </strong><br><?php echo $acs_info[0]["observation"]; ?>
 					<br><strong>Download to: </strong>
 					<a href='<?php echo base_url('acs/reportPDF/' . $acs_info[0]["id_acs"]); ?>' target="_blank">PDF <img src='<?php echo base_url('images/pdf.png'); ?>'></a>
 				</div>
@@ -125,12 +125,12 @@
 		<div class="col-lg-12">				
 			<div class="panel panel-dark">
 				<div class="panel-heading">
-					<strong>PERSONNEL</strong>
+					<strong>Manpower</strong>
 				</div>
 				<div class="panel-body">
 					<div class="col-lg-12">
 						<button type="button" class="btn btn-dark btn-block personal_modal" data-toggle="modal" data-target="#modal" id="<?php echo $acs_info[0]["id_acs"]; ?>">
-							<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Personnel
+							<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Manpower
 						</button><br>
 					</div>
 					<form id="form_acs_personal" method="post" action="<?php echo base_url("acs/save_info_acs_personal"); ?>">
@@ -140,8 +140,8 @@
 							<tr class="dark">
 								<th class="text-center" style="width: 5%;">PDF</th>
 								<th class="text-center" style="width: 15%;">Employee Name</th>
-								<th class="text-center" style="width: 15%;">Employee Type</th>
-								<th class="text-center" style="width: 36%;">Work Done</th>
+								<th class="text-center" style="width: 15%;">Manpower Type</th>
+								<th class="text-center" style="width: 36%;">Work Complted</th>
 								<th class="text-center" style="width: 8%;">Hours</th>
 								<th class="text-center" style="width: 8%;">Rate</th>
 								<th class="text-center" style="width: 8%;">Value</th>
@@ -214,7 +214,7 @@
 				<div class="panel-body">
 					<div class="col-lg-12">
 						<button type="button" class="btn btn-dark btn-block material_modal" data-toggle="modal" data-target="#modalMaterials" id="<?php echo 'material-' . $acs_info[0]["id_acs"]; ?>">
-							<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Materials
+							<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Material(s)
 						</button><br>
 					</div>
 					<form id="form_acs_material" method="post" action="<?php echo base_url("acs/save_info_acs_materials"); ?>">
@@ -294,12 +294,12 @@
 		<div class="col-lg-12">				
 			<div class="panel panel-dark">
 				<div class="panel-heading">
-					<b>RECEIPT</b>
+					<b>Purchase Slip</b>
 				</div>
 				<div class="panel-body">
 					<div class="col-lg-12">
 						<button type="button" class="btn btn-dark btn-block receipt_modal" data-toggle="modal" data-target="#modalReceipt" id="<?php echo 'receipt-' . $acs_info[0]["id_acs"]; ?>">
-							<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Receipts
+							<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Purchase Slip
 						</button><br>
 					</div>
 					<form id="form_acs_receipt" method="post" action="<?php echo base_url("acs/save_info_acs_receipt"); ?>">
@@ -309,7 +309,7 @@
 							<tr class="dark">
 								<th class="text-center" style="width: 5%;">PDF</th>
 								<th class="text-center" style="width: 30%;">Place</th>
-								<th class="text-center" style="width: 36%;">Description</th>
+								<th class="text-center" style="width: 36%;">Item's Description</th>
 								<th class="text-center" style="width: 8%;">Price with GST</th>
 								<th class="text-center" style="width: 8%;">Markup</th>
 								<th class="text-center" style="width: 8%;">Value</th>
@@ -375,12 +375,12 @@
 		<div class="col-lg-12">				
 			<div class="panel panel-dark">
 				<div class="panel-heading">
-					<b>EQUIPMENT</b>
+					<b>Machinery</b>
 				</div>
 				<div class="panel-body">
 					<div class="col-lg-12">
 						<button type="button" class="btn btn-dark btn-block equipment_modal" data-toggle="modal" data-target="#modalEquipment" id="<?php echo 'equipment-' . $acs_info[0]["id_acs"]; ?>">
-							<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Equipment / Rentals
+							<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Machinery & Rentals
 						</button><br>
 					</div>
 					<form id="form_acs_equipment" method="post" action="<?php echo base_url("acs/save_info_acs_equipment"); ?>">
@@ -389,7 +389,7 @@
 						<table class="table table-bordered table-striped table-hover table-condensed">
 							<tr class="dark">
 								<th class="text-center" style="width: 5%;">PDF</th>
-								<th class="text-center" style="width: 28%;">Info. Equipment</th>
+								<th class="text-center" style="width: 28%;">Machinery's Info</th>
 								<th class="text-center" style="width: 30%;">Description</th>
 								<th class="text-center" style="width: 8%;">Hours</th>
 								<th class="text-center" style="width: 8%;">Quantity</th>
@@ -486,12 +486,12 @@
 		<div class="col-lg-12">				
 			<div class="panel panel-dark">
 				<div class="panel-heading">
-					<b>SUBCONTRACTOR</b>
+					<b>SUb-Contractor</b>
 				</div>
 				<div class="panel-body">
 					<div class="col-lg-12">
 						<button type="button" class="btn btn-dark btn-block ocasional_modal" data-toggle="modal" data-target="#modalOcasional" id="<?php echo 'ocasional-' . $acs_info[0]["id_acs"]; ?>">
-							<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Subcontractor
+							<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Sub-Contractor
 						</button><br>
 					</div>
 					<form id="form_acs_subcontractor" method="post" action="<?php echo base_url("acs/save_info_acs_ocasional"); ?>">
@@ -500,7 +500,7 @@
 						<table class="table table-bordered table-striped table-hover table-condensed">
 							<tr class="dark">
 								<th class="text-center" style="width: 5%;">PDF</th>
-								<th class="text-center" style="width: 42%;">Info. Subcontractor</th>
+								<th class="text-center" style="width: 42%;">Sub-contractor's Info</th>
 								<th class="text-center" style="width: 8%;">Quantity</th>
 								<th class="text-center" style="width: 8%;">Unit</th>
 								<th class="text-center" style="width: 8%;">Hours</th>
@@ -517,10 +517,10 @@
 											<input type="checkbox" name="records[<?php echo $idRecord; ?>][check_pdf]" <?php echo $data['view_pdf'] == 1 ? 'checked' : ''; ?>>
 										</td>
 										<td>
-											<small><strong>Company</strong><br><?php echo $data['company_name']; ?></small>
-											<br><small><strong>Equipment</strong><br><?php echo $data['equipment']; ?></small>
-											<br><small><strong>Contact</strong><br><?php echo $data['contact']; ?></small>
-											<br><small><strong>Description</strong><br><?php echo $data['description']; ?></small>
+											<small><strong>Subs Company Name</strong><br><?php echo $data['company_name']; ?></small>
+											<br><small><strong>Machinery or Unit</strong><br><?php echo $data['equipment']; ?></small>
+											<br><small><strong>On-site Contact or Operator</strong><br><?php echo $data['contact']; ?></small>
+											<br><small><strong>Job or Task Perfomed</strong><br><?php echo $data['description']; ?></small>
 										</td>
 										<td>
 											<input type="text" name="records[<?php echo $idRecord; ?>][quantity]" class="form-control" placeholder="Quantity" value="<?php echo $data['quantity']; ?>" required>

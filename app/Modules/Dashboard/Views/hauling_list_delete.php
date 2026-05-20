@@ -11,13 +11,13 @@
 			<div class="panel panel-warning">
 				<div class="panel-heading">
 					<a class="btn btn-warning btn-xs" href=" <?php echo base_url($dashboardURL); ?> "><span class="glyphicon glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Go back </a>
-					<i class="fa fa-truck"></i> <strong>LAST HAULING RECORDS </strong>
+					<i class="fa fa-truck"></i> <strong>Most Recent Haul Ticket Report </strong>
 				</div>
 				<br>
 				<ul class="nav nav-pills">
 					<li <?php if ($active == 1) {
 							echo "class='active'";
-						} ?>><a class="class" href="<?php echo base_url("dashboard/hauling"); ?>">List of active hauling</a>
+						} ?>><a class="class" href="<?php echo base_url("dashboard/hauling"); ?>">List of active Haul Tickets</a>
 					</li>
 					<?php
 					$userRol = session()->get('rol');
@@ -25,13 +25,13 @@
 					?>
 						<li <?php if ($active == 2) {
 								echo "class='active'";
-							} ?>><a class="class" href="<?php echo base_url("dashboard/hauling_delete"); ?>">List of deleted hauling</a>
+							} ?>><a class="class" href="<?php echo base_url("dashboard/hauling_delete"); ?>">List of deleted Haul Tickets</a>
 						</li><?php } ?>
 				</ul>
 				<div class="panel-body">
 
 					<a class='btn btn-outline btn-warning btn-block' href='<?php echo base_url('hauling/add_hauling'); ?>'>
-						<span class="glyphicon glyphicon-edit" aria-hidden="true"> </span> Add Hauling
+						<span class="glyphicon glyphicon-edit" aria-hidden="true"> </span> Create a New Haul Ticket
 					</a>
 
 					<br>
@@ -42,17 +42,17 @@
 							<thead>
 								<tr>
 									<th class='text-center' width="10%">#</th>
-									<th class='text-center'>Report done by</th>
+									<th class='text-center'>Report Created by</th>
 									<th class='text-center'>Date</th>
-									<th class='text-center'>Hauling done by</th>
+									<th class='text-center'>Haul Ticket Created by</th>
 									<th class='text-center'>Truck - Unit Number</th>
 									<th class='text-center'>Truck Type</th>
 									<th class='text-center'>Material Type</th>
-									<th class='text-center'>Job Code/Name</th>
+									<th class='text-center'>Ventures Code</th>
 									<th class='text-center'>To Site</th>
-									<th class='text-center'>Payment</th>
-									<th class='text-center'>Time In</th>
-									<th class='text-center'>Time Out</th>
+									<th class='text-center'>Method of Payment</th>
+									<th class='text-center'>Clock In</th>
+									<th class='text-center'>Clock Out</th>
 									<th class='text-center'>Actions</th>
 								</tr>
 							</thead>

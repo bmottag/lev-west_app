@@ -90,9 +90,9 @@ function activeAttachments(attachmentId, status) {
 					<table width="100%" class="table table-striped table-bordered table-hover" id="dataTables">
 						<thead>
 							<tr>
-								<th class="text-center">Number</th>
+								<th class="text-center">ID #</th>
 								<th class="text-center">Attachment</th>
-								<th class="text-center">Equipments</th>
+								<th class="text-center">Machinery</th>
 								<th class="text-center">Status</th>
 								<th class="text-center">Actions</th>
 							</tr>

@@ -25,7 +25,7 @@ $(function(){
 		<div class="col-lg-12">
 			<div class="panel panel-primary">
 				<div class="panel-heading">
-					<i class="fa fa-link"></i> SETTINGS - CERTIFICATE LIST
+					<i class="fa fa-link"></i> Settings - Certificate List
 				</div>
 				<div class="panel-body">
 <?php
@@ -37,7 +37,7 @@ $(function(){
 ?>
 				<?php if($userRol == 99 || $userRol == 4){ ?>
 					<button type="button" class="btn btn-outline btn-primary btn-block" data-toggle="modal" data-target="#modal" id="x">
-							<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Certificate
+							<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add a New Certificate
 					</button><br>
 				<?php } ?>
     <?php

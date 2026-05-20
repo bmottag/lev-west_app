@@ -19,9 +19,9 @@ $(document).ready(function () {
 
 <div class="modal-header">
 	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-	<h4 class="modal-title" id="exampleModalLabel">EMPLOYEE CERTIFICATES
+	<h4 class="modal-title" id="exampleModalLabel">ManPower Certificates
 	<br><small>
-				Add the Certificate for the Employee
+				Add a New ManPower Certificate
 	</small>
 	</h4>
 </div>
@@ -46,7 +46,7 @@ $(document).ready(function () {
 					
 			<div class="col-sm-6">
 				<div class="form-group text-left">
-					<label class="control-label" for="dateThrough">Does the certificate expire?: *</label>
+					<label class="control-label" for="dateThrough">Does this certificate expire?: *</label>
 					<select name="expire" id="expire" class="form-control" required>
 						<option value=''>Select...</option>
 						<option value=1 selected>Yes</option>

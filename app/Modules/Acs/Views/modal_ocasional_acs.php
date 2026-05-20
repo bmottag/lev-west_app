@@ -1,9 +1,9 @@
 <script type="text/javascript" src="<?php echo base_url("assets/js/validate/acs/ocasional_acs.js?v=1.0.0"); ?>"></script>
 <div class="modal-header">
 	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-	<h4 class="modal-title" id="exampleModalLabel">SUBCONTRACTOR
+	<h4 class="modal-title" id="exampleModalLabel">Sub-contractor
 	<br><small>
-		Add an Occasional Subcontractor to the Accounting Control Sheet (ACS)
+		Add Subs to a W.Ticket Expense Control
 	</small>
 	</h4>
 </div>
@@ -29,7 +29,7 @@
 		<div class="row">
 			<div class="col-sm-12">
 				<div class="form-group text-left">
-					<label class="control-label" for="equipment">Equipment : *</label>
+					<label class="control-label" for="equipment">Machinery : *</label>
 					<textarea id="equipment" name="equipment" class="form-control" rows="2"></textarea>
 				</div>
 			</div>
@@ -54,14 +54,14 @@
 		<div class="row">
 			<div class="col-sm-6">
 				<div class="form-group text-left">
-					<label class="control-label" for="hour">Hours : </label>
+					<label class="control-label" for="hour">Hours Worked: </label>
 					<input type="text" id="hour" name="hour" class="form-control" placeholder="Hours" >
 				</div>
 			</div>
 
 			<div class="col-sm-6">
 				<div class="form-group text-left">
-					<label class="control-label" for="contact">Field Contact : *</label>
+					<label class="control-label" for="contact">On-site Contact: *</label>
 					<input type="text" id="contact" name="contact" class="form-control" placeholder="Field Contact" required >
 				</div>
 			</div>
@@ -70,7 +70,7 @@
 		<div class="row">
 			<div class="col-sm-12">
 				<div class="form-group text-left">
-					<label class="control-label" for="description">Description : </label>
+					<label class="control-label" for="description">Job or Task Performed: </label>
 					<textarea id="description" name="description" class="form-control" rows="2"></textarea>
 				</div>
 			</div>

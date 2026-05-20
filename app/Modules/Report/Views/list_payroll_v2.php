@@ -125,7 +125,7 @@
 										} else {
 										?>
 											<div class="alert alert-danger">
-												<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> These hours have already been paid, they cannot be edited.
+												<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> These hours are already paid ✅—no edits allowed! 😄.
 											</div>
 								<?php
 										}

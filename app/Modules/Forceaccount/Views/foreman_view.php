@@ -206,7 +206,7 @@
 			<div class="col-lg-12">
 				<div class="panel panel-primary">
 					<div class="panel-heading">
-						<b>SUBCONTRACTOR</b>
+						<b>SUb-Contractor</b>
 					</div>
 					<div class="panel-body">
 

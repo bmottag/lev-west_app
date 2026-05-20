@@ -2,9 +2,9 @@
 <script type="text/javascript" src="<?php echo base_url("assets/js/validate/acs/equipment_acs.js?v=1.0.0"); ?>"></script>
 <div class="modal-header">
 	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-	<h4 class="modal-title" id="exampleModalLabel">EQUIPMENT
+	<h4 class="modal-title" id="exampleModalLabel">Machinery
 	<br><small>
-		Add an Equipment to the Accounting Control Sheet (ACS)
+		Add Machinery to a W.Ticket Expense Control
 	</small>
 	</h4>
 </div>
@@ -31,7 +31,7 @@
 			<div class="col-sm-12">
 				<div class="form-group text-left">
 					<div id="div_truck">
-						<label class="control-label" for="truck">Equipment: *</label>
+						<label class="control-label" for="truck">Machinery: *</label>
 						<select name="truck" id="truck" class="form-control" >
 
 						</select>
@@ -80,7 +80,7 @@
 			<div class="col-sm-12">
 				<div class="form-group text-left">
 					<div id="div_operated">
-						<label class="control-label" for="operatedby">Operated by: *</label>
+						<label class="control-label" for="operatedby">Unit Operated by: *</label>
 						<select name="operatedby" id="operatedby" class="form-control" >
 							<option value=''>Select...</option>
 							<?php for ($i = 0; $i < count($workersList); $i++) { ?>
@@ -95,7 +95,7 @@
 		<div class="row">
 			<div class="col-sm-6">
 				<div class="form-group text-left">
-					<label class="control-label" for="hour">Hours: *</label>
+					<label class="control-label" for="hour">Hours Worked: *</label>
 					<input type="text" id="hour" name="hour" class="form-control" placeholder="Hours" required >
 				</div>
 			</div>
@@ -112,7 +112,7 @@
 		<div class="row">
 			<div class="col-sm-12">
 				<div class="form-group text-left">
-					<label class="control-label" for="description">Description: *</label>
+					<label class="control-label" for="description">Job or Task Perfomed: *</label>
 					<textarea id="description" name="description" class="form-control" rows="3"></textarea>
 				</div>
 			</div>

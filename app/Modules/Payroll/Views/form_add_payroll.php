@@ -87,8 +87,8 @@
 		<div class="col-lg-12">
 			<div class="panel panel-primary">
 				<div class="panel-heading">
-					<i class="fa fa-book"></i> <strong>RECORD TASK(S) - PAYROLL</strong>
-					<br><small>Time Stamp - Start</small>
+					<i class="fa fa-book"></i> <strong>Clock In/Out</strong>
+					<br><small>Clock In</small>
 				</div>
 				<div class="panel-body">
 					<form name="form" id="form" class="form-horizontal" method="post" action="<?php echo base_url("payroll/savePayroll"); ?>">
@@ -97,7 +97,7 @@
 						<input type="hidden" id="hddTask" name="hddTask" value="1" />
 
 						<div class="form-group">
-							<label class="col-sm-4 control-label" for="address">Address:</label>
+							<label class="col-sm-4 control-label" for="address">Satellite Location:</label>
 							<div class="col-sm-4">
 								<input id="viewaddress" name="viewaddress" class="form-control" type="text" disabled>
 								<input id="latitud" name="latitud" type="hidden">
@@ -119,9 +119,9 @@
 
 						<input id="programming" name="programming" type="hidden" value="<?php echo $programming; ?>">
 						<div class="form-group">
-							<label class="col-sm-4 control-label" for="jobName">Job Code/Name:
+							<label class="col-sm-4 control-label" for="jobName">Venture Code:
 								<?php if ($job_programming) { ?>
-									<p class="help-block">Are you logging in under this Job Code/Name?</p>
+									<p class="help-block">Are you Clockinh in under this Venture Code?</p>
 								<?php } ?>
 							</label>
 							<div class="col-sm-5">
@@ -138,9 +138,9 @@
 
 						<div class="form-group">
 							<label class="col-sm-6 control-label small" for="certify">
-								I certify to be clean for the last 8 hours of any substance such:
-								recreational cannabis, alcohol, drugs or any over the counter medicine that may or will affect
-								the fitness of my work performance.
+								I Confirm I've been clean for the last 8 hours from
+								anything that could affect my work performance including 
+								alcohol, recreational cannabis, drugs, or certain over-the-counter medication
 							</label>
 							<div class="col-sm-3">
 								<select name="certify" id="certify" class="form-control" required>
@@ -153,7 +153,7 @@
 
 						<div class="form-group">
 							<label class="col-sm-6 control-label small" for="certify">
-								I certify to be well-rested, having slept a minimun of 6 - 8 hours. I certify my ability or alertness to perform my work for this shift will NOT be impaired by the amount or quality of sleep I had before coming to work.
+								I confirm I am well-rested and have slept a minimun of 8 hours. My ability to work safely and stay alert during this shift is NOT impaired due to lack of sleep.
 							</label>
 							<div class="col-sm-3">
 								<select name="slept_certify" id="slept_certify" class="form-control" required>
@@ -165,7 +165,7 @@
 						</div>
 
 						<div class="form-group">
-							<label class="col-sm-4 control-label" for="taskDescription">Task/Report Description:</label>
+							<label class="col-sm-4 control-label" for="taskDescription">What's your assigment for today?</label>
 							<div class="col-sm-5">
 								<textarea id="taskDescription" name="taskDescription" class="form-control" rows="3"></textarea>
 							</div>

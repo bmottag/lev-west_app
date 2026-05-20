@@ -1,9 +1,9 @@
 <script type="text/javascript" src="<?php echo base_url("assets/js/validate/acs/personal_acs.js?v=2.0.0"); ?>"></script>
 <div class="modal-header">
 	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-	<h4 class="modal-title" id="exampleModalLabel">PERSONNEL
+	<h4 class="modal-title" id="exampleModalLabel">Manpower
 	<br><small>
-		Personnel to the Accounting Control Sheet (ACS)
+		Add Manpower to a W.Ticket Expense Control
 	</small>
 	</h4>
 </div>
@@ -15,7 +15,7 @@
 		<div class="row">
 			<div class="col-sm-12">
 				<div class="form-group text-left">
-					<label class="control-label" for="employee">Employee : *</label>
+					<label class="control-label" for="employee">Employee's Name: *</label>
 					<select name="employee" id="employee" class="form-control" >
 						<option value=''>Select...</option>
 						<?php for ($i = 0; $i < count($workersList); $i++) { ?>
@@ -29,7 +29,7 @@
 		<div class="row">
 			<div class="col-sm-12">
 				<div class="form-group text-left">
-						<label class="control-label" for="type">Employee Type : *</label>
+						<label class="control-label" for="type">Employee's Position : *</label>
 						<select name="type" id="type" class="form-control" >
 							<option value=''>Select...</option>
 							<?php for ($i = 0; $i < count($employeeTypeList); $i++) { ?>
@@ -52,7 +52,7 @@
 		<div class="row">
 			<div class="col-sm-12">
 				<div class="form-group text-left">
-					<label class="control-label" for="description">Work Done : *</label>
+					<label class="control-label" for="description">Job or Task Completed: *</label>
 					<textarea id="description" name="description" class="form-control" rows="3"></textarea>
 				</div>
 			</div>

@@ -7,7 +7,7 @@
 			<div class="panel panel-success">
 				<div class="panel-heading">
 					<a class="btn btn-success btn-xs" href=" <?php echo base_url($dashboardURL); ?> "><span class="glyphicon glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Go back </a> 
-					<i class="fa fa-search"></i> <strong>LAST PICKUPS & TRUCKS INSPECTION RECORDS</strong>
+					<i class="fa fa-search"></i> <strong>Most Recent P/u's & Trucks Reports</strong>
 				</div>
 				<div class="panel-body">
 											
@@ -18,14 +18,14 @@
 						<div class="col-lg-12">
 							<div class="alert alert-danger">
 								<strong>Attention: </strong>
-								The unit's inspection shows  a comment and an item "fail", please review it ASAP.
+								Heads up! 🚨 The unit inspection has a comment and a failed item—please take a look ASAP.
 							</div>
 						</div>
 						
 						<div class="col-lg-12">
 							<div class="alert alert-warning">
 								<strong>Attention: </strong>
-								There is a "fail" item in today's unit inspection.
+								Uh-oh! 🚧 Today’s unit inspection includes a failed item.
 							</div>
 						</div>
 					</div>

@@ -2,8 +2,8 @@
 
 <div class="modal-header">
 	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-	<h4 class="modal-title" id="exampleModalLabel">Attachment Form
-	<br><small>Add/Edit Attachment.</small>
+	<h4 class="modal-title" id="exampleModalLabel">Attachments Form
+	<br><small>Add or Edit an Attachment.</small>
 	</h4>
 </div>
 
@@ -14,7 +14,7 @@
 		<div class="row">
 			<div class="col-sm-12">		
 				<div class="form-group text-left">
-					<label class="control-label" for="attachment_number">Attachment Number: *</label>
+					<label class="control-label" for="attachment_number">Attachment ID #: *</label>
 					<input type="text" id="attachment_number" name="attachment_number" class="form-control" value="<?php echo $information?$information[0]["attachment_number"]:""; ?>" placeholder="Attachment Number" required >
 				</div>
 			</div>
@@ -47,7 +47,7 @@
 			<div class="col-sm-12">
 				<div class="form-group text-left">
 					<div id="div_equipment">
-						<label class="control-label" for="equipment">Equipment: *</label>
+						<label class="control-label" for="equipment">Machinery: *</label>
 						<select name="equipment[]" id="equipment" class="form-control" multiple="multiple">
 
 						</select>

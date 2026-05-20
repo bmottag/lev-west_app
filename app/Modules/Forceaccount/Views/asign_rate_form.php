@@ -751,7 +751,7 @@
 			<div class="col-lg-12">
 				<div class="panel panel-warning">
 					<div class="panel-heading">
-						<b>SUBCONTRACTOR</b>
+						<b>SUb-Contractor</b>
 					</div>
 					<div class="panel-body">
 						<div class="col-lg-12">
@@ -759,7 +759,7 @@
 							<?php if (!$deshabilitar) { ?>
 								<button type="button" class="btn btn-warning ocasional_modal btn-block" data-toggle="modal" data-target="#modalOcasional" id="<?php echo 'ocasional-' . $information[0]["id_forceaccount"]; //se coloca un ID diferente para que no entre en conflicto con los otros modales 
 																																				?>">
-									<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Subcontractor
+									<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Sub-Contractor
 								</button><br>
 							<?php } ?>
 						</div>

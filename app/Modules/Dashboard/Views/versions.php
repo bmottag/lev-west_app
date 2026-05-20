@@ -8,13 +8,13 @@
 				</div>
 				<div class="panel-body">
 					<p>
-                        <b>Settings & Work Orders Attachments</b>
+                        <b>Settings & Work Tickets Attachments</b>
                         <ul>
                             <li>A new form was developed to manage attachments. This form allows users to add, edit, and organize attachments related to specific equipment.</li>
                             <li>A new feature was introduced in the W.O. - equipment form, enabling users to indicate whether equipment was used with attachments. This information is captured and presented in the work order report.</li>
                         </ul>
-                        <b>Work Orders - Expenses</b>
-                        <br>The following changes were made for expenses in the Work Orders:
+                        <b>Work Tickets - Expenses</b>
+                        <br>The following changes were made for expenses in the Work Tickets:
                         <ol>
                             <li>Expenses are only enabled in WOs when the WO status is set to "Revised."</li>
                             <li>If expense items have been uploaded without calculating the weight of each item, display an alert in the WO indicating that the calculation needs to be done.</li>
@@ -67,7 +67,7 @@
 					<p>
                         <strong>New Module: Service Order</strong>
 						<ul>
-						<li>View, edit and changes status of Service Orders</li>
+						<li>View, edit and change status for Maintenance Orders</li>
 						<li>Add Service Orders</li>
 						<li>Add and edit Corective Maintenance</li>
 						<li>Add and edit Preventive Maintenance</li>
@@ -77,7 +77,7 @@
                         <li>Engineer User</li>
 						<li>Mechanic User</li>
 						</ul>
-                        <strong>Work Orders:</strong> 
+                        <strong>Work Tickets:</strong> 
                         <ul>
                         <li>Added attachments field to Equipment form.</li>
                         </ul>
@@ -113,7 +113,7 @@
                         <ul>
                         <li>Form with new field to indicate if the certificate expire or not. For the notifications it validate if the certificate expires.</li>
                         </ul>
-                        <strong>Work Orders:</strong> 
+                        <strong>Work Tickets:</strong> 
                         <ul>
                         <li>In search income for the excel document, the Receipts column is added.</li>
                         <li>At the end of the Total Income column, it shows the Total.</li>

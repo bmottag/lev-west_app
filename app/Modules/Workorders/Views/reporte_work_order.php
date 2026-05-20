@@ -241,7 +241,7 @@
 					</thead>
 					<tr>
 						<td width="100%">
-							1. All Work Orders will be attached to an Invoice otherwise can be deemed as an Invoice<br>
+							1. All Work Tickets will be attached to an Invoice otherwise can be deemed as an Invoice<br>
 							2. Please refer to the W.O. # in all your correspondence<br>
 							3. Please send correspondence regarding this work order to:<br><br>
 							<b>Hugo Villamil</b><br>

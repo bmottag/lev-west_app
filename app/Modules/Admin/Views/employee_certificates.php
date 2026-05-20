@@ -26,7 +26,7 @@ $(function(){
 			<div class="panel panel-primary">
 				<div class="panel-heading">
 					<h4 class="list-group-item-heading">
-					<i class="fa fa-gear fa-fw"></i> SETTINGS - EMPLOYEE
+					<i class="fa fa-gear fa-fw"></i> Settings - ManPower
 					</h4>
 				</div>
 			</div>

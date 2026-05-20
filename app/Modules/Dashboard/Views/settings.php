@@ -6,7 +6,7 @@
 		<div class="col-lg-4">
 			<div class="panel panel-primary">
 				<div class="panel-heading">
-					<strong>Administrator</strong>
+					<strong>The Adming Dude</strong>
 				</div>
 				<div class="panel-body">
 					<p>
@@ -16,7 +16,7 @@
 					</p>
 				</div>
 				<div class="panel-footer">
-					<strong>Mobile number: </strong>Used to send SMS of a new Day Off requests. </br>
+					<strong>Mobile number: </strong>Used to send an Text when a new Day Off request comes in 📲🌴 </br>
 				</div>
 			</div>
 		</div>
@@ -24,7 +24,7 @@
 		<div class="col-lg-4">
 			<div class="panel panel-success">
 				<div class="panel-heading">
-					<strong>Safety</strong>
+					<strong>Act Safe, Work Safe</strong>
 				</div>
 				<div class="panel-body">
 					<p>
@@ -32,9 +32,9 @@
 					</p>
 				</div>
 				<div class="panel-footer">
-					<strong>Email: </strong>Used to send email of a new Day Off requests. </br>
-					<strong>Email: </strong>Used to send email of a new Incidence requests. </br>
-					<strong>Email: </strong>Used to send email when an Inspection has comments.
+					<strong>Email: </strong>E-mail when there’s a new Day Off request 🌴📧. </br>
+					<strong>Email: </strong>E-mail when a new Incident report 🚨📧 Happends </br>
+					<strong>Email: </strong>E-mail when inspection with comments 🛠️💬📧.
 				</div>
 			</div>
 		</div>

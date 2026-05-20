@@ -20,7 +20,7 @@
 
 			customButtons: {
 				myCustomButton: {
-					text: 'Go to Dashboard',
+					text: 'My Work Space',
 					click: function() {
 						window.location.href = dashboardURL;
 					}

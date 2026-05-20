@@ -1,9 +1,9 @@
 <script type="text/javascript" src="<?php echo base_url("assets/js/validate/acs/materials_acs.js?v=1.0.0"); ?>"></script>
 <div class="modal-header">
 	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-	<h4 class="modal-title" id="exampleModalLabel">MATERIALS AND SUPPLIES
+	<h4 class="modal-title" id="exampleModalLabel">Materials and Supplies
 	<br><small>
-		Add Materials to the Accounting Control Sheet (ACS)
+		Add Materials to a W.Ticket Expense Control
 	</small>
 	</h4>
 </div>
@@ -47,7 +47,7 @@
 		<div class="row">
 			<div class="col-sm-12">
 				<div class="form-group text-left">
-					<label class="control-label" for="description">Description : </label>
+					<label class="control-label" for="description">Material Description : </label>
 					<textarea id="description" name="description" class="form-control" rows="3"></textarea>
 				</div>
 			</div>

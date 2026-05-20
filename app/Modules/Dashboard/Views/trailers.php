@@ -5,7 +5,7 @@
 			<div class="panel panel-warning">
 				<div class="panel-heading">
 					<h4 class="list-group-item-heading">
-						<a class="btn btn-warning btn-xs" href=" <?php echo base_url($dashboardURL); ?> "><span class="glyphicon glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Go to Dashboard </a> 
+						<a class="btn btn-warning btn-xs" href=" <?php echo base_url($dashboardURL); ?> "><span class="glyphicon glyphicon glyphicon-chevron-left" aria-hidden="true"></span> My Work Space </a> 
 						<i class="fa fa-car fa-fw"></i> Trailers Inspections
 					</h4>
 				</div>

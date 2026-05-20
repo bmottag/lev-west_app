@@ -23,7 +23,7 @@ $(function(){
 			<div class="panel panel-primary">
 				<div class="panel-heading">
 					<h4 class="list-group-item-heading">
-					<i class="fa fa-gear fa-fw"></i> SETTINGS - EMPLOYEE SETTINGS
+					<i class="fa fa-gear fa-fw"></i> Settings- ManPower Settings
 					</h4>
 				</div>
 			</div>
@@ -36,7 +36,7 @@ $(function(){
 		<div class="col-lg-12">
 			<div class="panel panel-default">
 				<div class="panel-heading">
-					<i class="fa fa-flag-o"></i> EMPLOYEE BANK TIME
+					<i class="fa fa-flag-o"></i> ManPower Banking Time
 				</div>
 				<div class="panel-body">
 <?php
@@ -69,7 +69,7 @@ if ($retornoError) {
 }
 ?> 
 				<button type="button" class="btn btn-success btn-block" data-toggle="modal" data-target="#modal" id="<?php echo $idUser ?>">
-						<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Balance to Bank Time
+						<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Balance to Banking Time
 				</button><br>
 				<?php
 					if($info){
@@ -77,14 +77,14 @@ if ($retornoError) {
 					<table width="100%" class="table table-striped table-bordered table-hover" id="dataTables">
 						<thead>
 							<tr>
-								<th class="text-center">Name</th>
-								<th class="text-center">Period</th>
-								<th class="text-center">Change done by</th>
-								<th class="text-center">Observation</th>
+								<th class="text-center">ManPower Name</th>
+								<th class="text-center">Paid Period</th>
+								<th class="text-center">Update or Change made by</th>
+								<th class="text-center">Remarks and Observations</th>
 								<th class="text-center">Date & Time</th>
-								<th class="text-center">Time In</th>
-								<th class="text-center">Time Out</th>
-								<th class="text-center">Balance</th>
+								<th class="text-center">Clock-In</th>
+								<th class="text-center">Clok-Out</th>
+								<th class="text-center">Current Balance</th>
 							</tr>
 						</thead>
 						<tbody>							

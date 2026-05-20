@@ -52,7 +52,7 @@
 		<div class="row">
 			<div class="col-sm-12">
 				<div class="form-group text-left">
-					<label class="control-label" for="description">Work Done : *</label>
+					<label class="control-label" for="description">Job or Task Completed: *</label>
 					<textarea id="description" name="description" class="form-control" rows="3"></textarea>
 				</div>
 			</div>
