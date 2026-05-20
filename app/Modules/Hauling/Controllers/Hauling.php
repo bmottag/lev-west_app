@@ -294,7 +294,7 @@ class Hauling extends BaseController
 		$fullEmail = "<html><head><title>{$subject}</title></head><body>"
 			. "<p>Dear {$user}:</p>"
 			. $emailBody
-			. "<p>Cordially,</p><p><strong>V-CONTRACTING INC</strong></p>"
+			. "<p>Cordially,</p><p><strong>Lev West</strong></p>"
 			. "</body></html>";
 
 		$emailService = new \App\Libraries\EmailService();

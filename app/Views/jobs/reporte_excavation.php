@@ -202,7 +202,7 @@
 		$html.= '</ul>';
 
 		if($info[0]['protection_sloping']){
-			$html.= '<p><img src="https://v-contracting.ca/app/images/sloping.jpg"></p>';
+			$html.= '<p><img src="https://lev-west.com/app/images/sloping.jpg"></p>';
 		}
 		$html.= '<ul>';
 		if($info[0]['protection_benching']){

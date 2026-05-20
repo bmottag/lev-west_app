@@ -150,7 +150,7 @@ if (!function_exists("send_notification")) {
                 $fullEmail = "<html><head><title>{$subject}</title></head><body>"
                     . "<p>Dear {$userName}:<br/></p>"
                     . $emailFinal
-                    . "<p>Cordially,</p><p><strong>V-CONTRACTING INC</strong></p>"
+                    . "<p>Cordially,</p><p><strong>Lev West</strong></p>"
                     . "</body></html>";
 
                 $result = $emailService->sendRaw($envioAlerta['email'], $subject, $fullEmail);

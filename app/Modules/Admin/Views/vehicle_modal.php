@@ -42,7 +42,7 @@ if($companyType == 2){ //si es subcontractor me deja seleccionar un sucontratist
 			</div>
 		</div>
 <?php
-}else{ //si es vci carga el campo con el id de Lev West
+}else{ //si es LEV WEST carga el campo con el id de Lev West
 	$labelFecha = "Manufacturer date";
 ?>
 		<input type="hidden" id="company" name="company" value=1 />

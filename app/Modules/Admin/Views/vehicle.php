@@ -111,7 +111,7 @@ $(function(){
 if($companyType == 2){ //si es subcontractor 
 	$labelFecha = "Arrival date";
 	$labelCompany = "Rental Company";
-}else{ //si es vci
+}else{ //si es LEV WEST
 	$labelFecha = "Manufacturer date";
 	$labelCompany = "Company";
 }

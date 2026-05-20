@@ -178,53 +178,53 @@
 					<p>
                         <strong>FLHA Verifications for Planning:</strong>
                         <ul>
-                            <li>URL: https://v-contracting.ca/app/programming/verificacion_flha</li>
+                            <li>URL: https://lev-west.com/app/programming/verificacion_flha</li>
                             <li>Time: Every 30 minutes </li>
                         </ul>
 
                         <strong>IHSR Verifications for Planning:</strong>
                         <ul>
-                            <li>URL: https://v-contracting.ca/app/programming/verificacion_tool_box </li>
+                            <li>URL: https://lev-west.com/app/programming/verificacion_tool_box </li>
                             <li>Time: Every 15 minutes </li>
                         </ul>
 
                         <strong>Inspection Verifications for Planning:</strong>
                         <ul>
-                            <li>URL: https://v-contracting.ca/app/programming/verificacion </li>
+                            <li>URL: https://lev-west.com/app/programming/verificacion </li>
                             <li>Time: Every 1 hour </li>
                             <li>Verify for the current date if there are assigned machines and if they were inspected </li>
                         </ul>
 
                         <strong>Maintenance Check:</strong>
                         <ul>
-                            <li>URL: https://v-contracting.ca/app/serviceorder/maintenance_check </li>
+                            <li>URL: https://lev-west.com/app/serviceorder/maintenance_check </li>
                             <li>Time: Every Day at 12am </li>
                         </ul>
 
                         <strong>Certifications Check:</strong>
                         <ul>
-                            <li>URL: https://v-contracting.ca/app/admin/certifications_check </li>
+                            <li>URL: https://lev-west.com/app/admin/certifications_check </li>
                             <li>Time: Every Monday at 1am </li>
                         </ul>
 
                         <strong>Payroll Check:</strong>
                         <ul>
                         <li>If a worker has been working for more than 18 hours then the system close automatically the hours of the user. If the worker has been working form more than 14 hours, then the system send a text message to the worker.  </li>
-                            <li>URL: https://v-contracting.ca/app/payroll/payroll_check</li>
+                            <li>URL: https://lev-west.com/app/payroll/payroll_check</li>
                             <li>Time: Every day at 12pm </li>
                             <li>Time: Every day at 9pm </li>
                         </ul>
 
                         <strong>Timesheet for Job Code Check:</strong>
                         <ul>
-                            <li>URL: https://v-contracting.ca/app/admin/checkin_check  </li>
+                            <li>URL: https://lev-west.com/app/admin/checkin_check  </li>
                             <li>Time: Every day at 6pm </li>
                             <li>Verify the peopple who work for specific JOB CODE at the side</li>
                         </ul>     
                         
                         <strong>Planning Automatic Message:</strong>
                         <ul>
-                            <li>URL: https://v-contracting.ca/app/programming/automatic_planning_message  </li>
+                            <li>URL: https://lev-west.com/app/programming/automatic_planning_message  </li>
                             <li>Time: Every day at 12pm </li>
                             <li>Send message to workers for the planning</li>
                         </ul> 
