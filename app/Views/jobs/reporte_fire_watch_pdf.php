@@ -119,7 +119,7 @@
 		foreach ($checkinList as $lista):
 			$html .=  "<tr>";
 			$html .=  "<td>" . $lista['first_name'] . " " . $lista['last_name'] . "</td>";
-			$html .=  "<td class='text-center'>VCI</td>";
+			$html .=  "<td class='text-center'>Lev West</td>";
 			$html .=  "<td class='text-center'>" . $lista['movil'] . "</td>";
 			$html .=  "</tr>";
 		endforeach;
@@ -143,7 +143,7 @@
 	}
 
 	$html.= '<p><strong>Supervisor’s Name:</strong> '. $info[0]["supervisor"] .'</p>';
-	$html.= '<p><strong>Supervisor’s Company:</strong> VCI</p>';
+	$html.= '<p><strong>Supervisor’s Company:</strong> Lev West</p>';
 	$html.= '<p><strong>Supervisor’s Contact Number:</strong> '. $resultado .'</p>';
 
 echo $html;

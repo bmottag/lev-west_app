@@ -14,7 +14,7 @@ $( document ).ready( function () {
 		}else{
 			return true;
 		}
-	}, "You must be in your full capacity of ability and alertness to perform any work at VCI.");
+	}, "You must be in your full capacity of ability and alertness to perform any work at Lev West.");
 
 	jQuery.validator.addMethod("revisarCovid", function(value, element, param) {
 		if(value == 1){
@@ -22,7 +22,7 @@ $( document ).ready( function () {
 		}else{
 			return true;
 		}
-	}, "Do not enter any VCI site.");
+	}, "Do not enter any Lev West site.");
 			
 	$( "#form" ).validate( {
 		ignore: "input[type='text']:hidden",

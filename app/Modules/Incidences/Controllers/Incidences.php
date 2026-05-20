@@ -353,8 +353,8 @@ class Incidences extends BaseController
 	{
 		$pdf = new TCPDF();
 
-		$pdf->SetCreator('VCI');
-		$pdf->SetAuthor('VCI');
+		$pdf->SetCreator('Lev West');
+		$pdf->SetAuthor('Lev West');
 		$pdf->SetTitle('Incidences Report');
 
 		$pdf->setPrintHeader(false);
@@ -453,7 +453,7 @@ class Incidences extends BaseController
 			return redirect()->to(base_url($path));
 		}
 
-		$mensaje  = "VCI INCIDENCES - " . date('F j, Y', strtotime($data['info'][0]['date_issue']));
+		$mensaje  = "Lev West INCIDENCES - " . date('F j, Y', strtotime($data['info'][0]['date_issue']));
 		$mensaje .= "\n" . $data['info'][0]['job_description'];
 		$mensaje .= "\nFollow the link, read and sign.";
 		$mensaje .= "\n\n";
@@ -515,7 +515,7 @@ class Incidences extends BaseController
 				break;
 			case 2: //incident report
 				$model = "get_incident_by";
-				$subjet = "Incident Report App - VCI";
+				$subjet = "Incident Report App - Lev West";
 				$arrParam = array('idIncident' => $idIncidence);
 				break;
 		}
@@ -527,7 +527,7 @@ class Incidences extends BaseController
 			$emailBody  = "<p>It is a new " . $subjet . ":</p>";
 			$emailBody .= "<strong>Report by: </strong>" . esc($infoIncident[0]["name"]);
 
-			$smsMessage  = "Incident Notification App - VCI";
+			$smsMessage  = "Incident Notification App - Lev West";
 			$smsMessage .= "\nIt is a new " . $subjet . ":";
 			$smsMessage .= "\nReport by: " . $infoIncident[0]["name"];
 			if ($incidencesType == 3) {

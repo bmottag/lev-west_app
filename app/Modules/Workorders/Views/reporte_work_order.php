@@ -13,7 +13,7 @@
 					
 			$html.= '<th width="40%">
 					<b>Project name: </b>' . $info[0]['company_name'] . '<br>
-					<b>VCI project number: </b>' . $info[0]['job_description'] . '
+					<b>Lev West project number: </b>' . $info[0]['job_description'] . '
 					</th></tr>';
 					
 			$html.= '</table>';
@@ -247,7 +247,7 @@
 							<b>Hugo Villamil</b><br>
 							<a href="mailto:hugo@v-contracting.com">hugo@v-contracting.com</a><br>
 							<b>Ph:</b>(587)-892-9616<br><br>
-							<b>Signature VCI Rep:</b> <br>
+							<b>Signature Lev West Rep:</b> <br>
 							<img src="http://v-contracting.ca/app/images/employee/signature/hugo_boss.png" width="150" height="150" border="0" />
 						</td>
 					</tr>

@@ -636,7 +636,7 @@ class Forceaccount extends BaseController
     {
         // TODO: implement email sending
         // $arrParam = ['idForceAccount' => $id];
-        // ... send emails to contractors and VCI
+        // ... send emails to contractors and Lev West
         session()->setFlashdata('retornoExito', 'Email functionality pending implementation.');
 
         return redirect()->to(base_url('forceaccount/add_forceaccount/' . $id));

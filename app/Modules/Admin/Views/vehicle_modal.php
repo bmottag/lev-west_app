@@ -42,11 +42,11 @@ if($companyType == 2){ //si es subcontractor me deja seleccionar un sucontratist
 			</div>
 		</div>
 <?php
-}else{ //si es vci carga el campo con el id de VCI
+}else{ //si es vci carga el campo con el id de Lev West
 	$labelFecha = "Manufacturer date";
 ?>
 		<input type="hidden" id="company" name="company" value=1 />
-		<input type="hidden" id="type1" name="type1" value=1 /><!-- Si es VCI entonces el FLEET -->
+		<input type="hidden" id="type1" name="type1" value=1 /><!-- Si es Lev West entonces el FLEET -->
 <?php }  ?>
 
 		<div class="row">
@@ -140,7 +140,7 @@ if($companyType == 2){ //si es subcontractor me deja seleccionar un sucontratist
 		</div>
 
 <?php
-if($companyType == 1){ //si es VCI
+if($companyType == 1){ //si es Lev West
 ?>
 		<div class="row">
 			<div class="col-sm-6">

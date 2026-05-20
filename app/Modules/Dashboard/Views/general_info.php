@@ -273,7 +273,7 @@
 						<br>----------------------------
 						<br>* <strong>Settings:</strong> 
 						<ul>
-						<li>Vehicle - VCI</li>
+						<li>Vehicle - Lev West</li>
 						<li>Videos links</li>
 						<li>Manuals links</li>
 						<li>Notifications Settings</li>
@@ -362,7 +362,7 @@
 						<br>* <strong>Settings:</strong> 
 						<ul>
 						<li>Company</li>
-						<li>Vehicle - VCI</li>
+						<li>Vehicle - Lev West</li>
 						</ul>
 						----------------------------
 						<br><strong>Manuals</strong>
@@ -512,7 +512,7 @@
 						<br>* <strong>Settings:</strong> 
 						<ul>
 						<li>Company</li>
-						<li>Vehicle - VCI</li>
+						<li>Vehicle - Lev West</li>
 						</ul>
 						----------------------------
 						<br><strong>Manuals</strong>

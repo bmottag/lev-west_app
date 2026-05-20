@@ -61,7 +61,7 @@ $(function(){
 						}
 						?>						
 						<br><br>
-						This form is to be completed before a sub-contractor’s employee(s), visitor(s) and worker(s) commences work on any VCI site. 
+						This form is to be completed before a sub-contractor’s employee(s), visitor(s) and worker(s) commences work on any Lev West site. 
 						<br>
 						Please complete all sections that are applicable to these worksite activities.
 						<br>
@@ -102,7 +102,7 @@ $(function(){
 							'imageUrl'        => $information[0]["supervisor"] ?? null,
 							'formAction'      => base_url('jobs/save_signature_jso'),
 							'height'          => 200,
-							'signButtonText'  => ' VCI Supervisor Signature ',
+							'signButtonText'  => ' Lev West Supervisor Signature ',
 							'id' 			  => 'supervisor',
 							'extraValue' 	  => $information[0]["id_job_jso"],
 							'otherValue' 	  => 'supervisor'
@@ -123,7 +123,7 @@ $(function(){
 							'imageUrl'        => $information[0]["manager_signature"] ?? null,
 							'formAction'      => base_url('jobs/save_signature_jso'),
 							'height'          => 200,
-							'signButtonText'  => ' VCI Manager Signature ',
+							'signButtonText'  => ' Lev West Manager Signature ',
 							'id' 			  => 'manager',
 							'extraValue' 	  => $information[0]["id_job_jso"],
 							'otherValue' 	  => 'manager'
@@ -145,7 +145,7 @@ $(function(){
 					<strong>WORKER(S)</strong>
 				</div>
 				<div class="panel-body">
-<p class="text-left">By signing below the worker(s) agreed to comply with all VCI’s policies as well as with all safe operations required on
+<p class="text-left">By signing below the worker(s) agreed to comply with all Lev West’s policies as well as with all safe operations required on
 this specific site, also is aware of all potential hazards, keeping in mind that all equipment has the right of way. Do not
 walk behind any piece of equipment before making EYE CONTACT with the operator.</p>	
 

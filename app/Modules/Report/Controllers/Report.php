@@ -478,7 +478,7 @@ class Report extends BaseController
 
                     $html .= '<tr bgcolor="#337ab7" style="color:white;"><th align="center"><strong>Company</strong></th>';
                     for ($j = $star; $j < $finish; $j++) {
-                        $html .= '<th align="center"><strong>VCI</strong></th>';
+                        $html .= '<th align="center"><strong>Lev West</strong></th>';
                     }
                     $html .= '</tr>';
 
@@ -658,7 +658,7 @@ class Report extends BaseController
                             <th width="35%" align="center">' . $signatureContractor . '</th>
                         </tr>
                         <tr bgcolor="#337ab7" style="color:white;">
-                            <th align="center"><strong>VCI Representative<br>' . $lista['name'] . '</strong></th>
+                            <th align="center"><strong>Lev West Representative<br>' . $lista['name'] . '</strong></th>
                             <th></th>
                             <th align="center"><strong>Contractor</strong></th>
                         </tr>

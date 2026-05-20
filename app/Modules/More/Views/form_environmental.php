@@ -50,7 +50,7 @@
 							'imageUrl'        => $information[0]["inspector_signature"] ?? null,
 							'formAction'      => base_url('more/add_signature_esi'),
 							'height'          => 200,
-							'signButtonText'  => ' VCI Inspector Signature ',
+							'signButtonText'  => ' Lev West Inspector Signature ',
 							'id' 			  => 'inspector',
 							'extraValue' 	  => $information[0]["id_job_environmental"],
 							'otherValue' 	  => 'inspector'
@@ -69,7 +69,7 @@
 							'imageUrl'        => $information[0]["manager_signature"] ?? null,
 							'formAction'      => base_url('more/add_signature_esi'),
 							'height'          => 200,
-							'signButtonText'  => ' VCI Manager Signature ',
+							'signButtonText'  => ' Lev West Manager Signature ',
 							'id' 			  => 'manager',
 							'extraValue' 	  => $information[0]["id_job_environmental"],
 							'otherValue' 	  => 'manager'

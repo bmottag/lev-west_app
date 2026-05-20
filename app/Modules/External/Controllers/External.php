@@ -41,7 +41,7 @@ class External extends BaseController
         }
 
         // 🔹 Mensaje
-        $mensaje  = "FLHA App - VCI - " . date('F j, Y', strtotime($infoSafety[0]['date']));
+        $mensaje  = "FLHA App - Lev West - " . date('F j, Y', strtotime($infoSafety[0]['date']));
         $mensaje .= "\n" . $infoSafety[0]['job_description'];
         $mensaje .= "\nFollow the link, read the FLHA and sign.";
         $mensaje .= "\n\n" . base_url("safety/review_flha/" . $idSafety);
@@ -86,7 +86,7 @@ class External extends BaseController
         }
 
         // 🔹 Mensaje
-        $mensaje  = 'Excavation and Trenching Plan App - VCI - ' . date('F j, Y', strtotime($information[0]['date_excavation']));
+        $mensaje  = 'Excavation and Trenching Plan App - Lev West - ' . date('F j, Y', strtotime($information[0]['date_excavation']));
         $mensaje .= "\n" . $information[0]['job_description'];
         $mensaje .= "\nFollow the link, read the Excavation and Trenching Plan and sign.";
         $mensaje .= "\n\n" . base_url('jobs/review_excavation/' . $idExcavation);
@@ -164,7 +164,7 @@ class External extends BaseController
 
                 $result = $emailService->sendTemplate(
                     $email,
-                    'Welcome to VCI',
+                    'Welcome to Lev West',
                     'emails/welcome',
                     [
                         'name' => $firstName,

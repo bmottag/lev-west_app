@@ -113,10 +113,10 @@
 					<div class="col-lg-12">	
 						<?php if($excavationWorkers){ ?>
 							<button type="button" class="btn btn-info btn-block" data-toggle="modal" data-target="#modalWorker" id="x">
-									<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add VCI Workers
+									<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Lev West Workers
 							</button>
 						<?php }else { ?>
-							<a href="<?php echo base_url("jobs/add_workers_excavation/" . $information[0]["id_job_excavation"]); ?>" class="btn btn-info btn-block"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add VCI Workers</a>
+							<a href="<?php echo base_url("jobs/add_workers_excavation/" . $information[0]["id_job_excavation"]); ?>" class="btn btn-info btn-block"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Lev West Workers</a>
 						<?php } ?>
 						<br>
 					</div>

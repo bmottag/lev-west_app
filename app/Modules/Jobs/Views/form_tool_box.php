@@ -202,17 +202,17 @@ $(function(){
 		<div class="col-lg-12">				
 			<div class="panel panel-warning">
 				<div class="panel-heading">
-					<a name="anclaWorker" ></a><strong>VCI WORKERS</strong>
+					<a name="anclaWorker" ></a><strong>Lev West WORKERS</strong>
 				</div>
 				<div class="panel-body">
 					<div class="col-lg-12">	
 <?php if($toolBoxWorkers){ ?>
 												
 					<button type="button" class="btn btn-warning btn-lg btn-block" data-toggle="modal" data-target="#modalWorker" id="x">
-							<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add VCI Workers
+							<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Lev West Workers
 					</button>
 <?php }else { ?>
-					<a href="<?php echo base_url("jobs/add_workers_tool_box/" . $jobInfo[0]["id_job"] . "/" . $information[0]["id_tool_box"]); ?>" class="btn btn-warning btn-lg btn-block"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add VCI Workers</a>
+					<a href="<?php echo base_url("jobs/add_workers_tool_box/" . $jobInfo[0]["id_job"] . "/" . $information[0]["id_tool_box"]); ?>" class="btn btn-warning btn-lg btn-block"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Lev West Workers</a>
 												
 <?php } ?>
 											

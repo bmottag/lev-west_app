@@ -592,7 +592,7 @@ class Admin extends BaseController
 				if ($configuracionAlertas) {
 
 					//mensaje de texto
-					$mensajeSMS = "NEW JOB APP-VCI";
+					$mensajeSMS = "NEW JOB APP-Lev West";
 					$mensajeSMS .= "\nFor your records, a new Job Code has been created in the system.";
 					$mensajeSMS .= "\nJob Code/Name: " . $jobDescription;
 
@@ -687,7 +687,7 @@ class Admin extends BaseController
 					if ($configuracionAlertas) {
 
 						//mensaje de texto
-						$mensajeSMS = "NEW JOB APP-VCI";
+						$mensajeSMS = "NEW JOB APP-Lev West";
 						$mensajeSMS .= "\nFor your records, a new Job Code has been created in the system.";
 						$mensajeSMS .= "\nJob Code/Name: " . $jobDescription;
 
@@ -766,7 +766,7 @@ class Admin extends BaseController
 		$data['companyType'] = $companyType;
 		$data['vehicleType'] = $vehicleType;
 		$data['vehicleState'] = $vehicleState;
-		$data['title'] = $companyType == 1 ? "VCI" : "RENTALS";
+		$data['title'] = $companyType == 1 ? "Lev West" : "RENTALS";
 
 		$arrParam = [
 			"companyType" => $companyType,
@@ -842,7 +842,7 @@ class Admin extends BaseController
 		$id = $post['hddId'] ?? null;
 		$idCompany = $post['company'] ?? null;
 		$data = [];
-		$data["compannyType"] = $idCompany == 1 ? 1 : 2; //1:VCI; 2:Subcontractor
+		$data["compannyType"] = $idCompany == 1 ? 1 : 2; //1:Lev West; 2:Subcontractor
 
 		$msj = $id 
 			? "You have updated a Vehicle!!" 
@@ -893,7 +893,7 @@ class Admin extends BaseController
 
 	/**
 	 * FUNCIÓN PARA SUBIR LA IMAGEN 
-	 * @param int vistaRegreso -> para saber si es de VCI o RENTADA
+	 * @param int vistaRegreso -> para saber si es de Lev West o RENTADA
 	 * @review 03/04/2026 - new CI4 version
 	 */
 	public function do_upload($type, $vistaRegreso = null)
@@ -1660,7 +1660,7 @@ class Admin extends BaseController
 					}
 
 					if ($envioAlerta['movil'] && $certificates) {
-						$smsMensaje  = "APP VCI - Employees Certificates";
+						$smsMensaje  = "APP Lev West - Employees Certificates";
 						$smsMensaje .= "\nThere are employees with certificates about to expire. Go to Settings - Employee and check.";
 						$smsService->send('+1' . $envioAlerta['movil'], $smsMensaje);
 					}
@@ -1738,7 +1738,7 @@ class Admin extends BaseController
 			foreach ($checkinList as $data) :
 				$x++;
 				//send sms to the employee
-				$mensaje = "VCI Sign-Out";
+				$mensaje = "Lev West Sign-Out";
 				$mensaje .= "\n" . $data['worker_name'];
 				$mensaje .= "\n";
 				$mensaje .= "This message is to remind you that you still ON the working list at the work site, it is possible that you forgot to sign out.";

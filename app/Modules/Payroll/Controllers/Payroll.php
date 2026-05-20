@@ -516,7 +516,7 @@ class Payroll extends BaseController
 			return false;
 		}
 
-		$mensaje  = "VCI TIME SHEET";
+		$mensaje  = "Lev West TIME SHEET";
 		$mensaje .= "\n" . $userInfo[0]['first_name'] . ' ' . $userInfo[0]['last_name'];
 		$mensaje .= "\nThis message is to remind you that you have been working more than 14 hours, it is possible that you forgot to check out, if it is the case please login the system and check out.";
 

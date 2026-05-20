@@ -21,7 +21,7 @@
 				<div class="panel-body">
 				
 					<ul class="nav nav-pills">
-						<li <?php if($companyType == 1){ echo "class='active'";} ?>><a href="<?php echo base_url("prices/equipmentList/1"); ?>">VCI EQUIPMENT</a>
+						<li <?php if($companyType == 1){ echo "class='active'";} ?>><a href="<?php echo base_url("prices/equipmentList/1"); ?>">Lev West EQUIPMENT</a>
 						</li>
 						<li <?php if($companyType == 2){ echo "class='active'";} ?>><a href="<?php echo base_url("prices/equipmentList/2"); ?>">RENTAL EQUIPMENT</a>
 						</li>
@@ -54,7 +54,7 @@
 								<tr>
 									<th class="text-center">Equipment Type</th>
 									<th class="text-center">Equipment</th>
-									<th class="text-center">VCI Cost</th>
+									<th class="text-center">Lev West Cost</th>
 									<th class="text-center">Unit Price Without Driver</th>
 									<th class="text-center">Unit Price
 									<button type="submit" class="btn btn-primary btn-xs" id="btnSubmit2" name="btnSubmit2" >
@@ -82,7 +82,7 @@
 										echo "<td class='text-right'>";
 							?>
 							<input type="hidden" id="price" name="form[id][]" value="<?php echo $lista['id_vehicle']; ?>"/>
-							<input type="text" id="price" name="form[cost][]" class="form-control" placeholder="VCI Cost" value="<?php echo $unitCost; ?>" >
+							<input type="text" id="price" name="form[cost][]" class="form-control" placeholder="Lev West Cost" value="<?php echo $unitCost; ?>" >
 							<?php
 										echo "</td>";
 

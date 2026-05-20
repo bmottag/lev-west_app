@@ -24,6 +24,9 @@ RUN a2enmod rewrite
 # Configurar directorio de trabajo
 WORKDIR /var/www/html
 COPY . /var/www/html
+
+RUN composer install
+
 RUN chown -R www-data:www-data /var/www/html
 
 # Crear vhost apuntando a /public

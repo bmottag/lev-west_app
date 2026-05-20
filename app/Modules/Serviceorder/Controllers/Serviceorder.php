@@ -239,7 +239,7 @@ class Serviceorder extends BaseController
                 $module    = base64url_encode('ID_MODULE_SERVICE_ORDER');
                 $idModule  = base64url_encode($data['idServiceOrder']);
                 $urlMovil  = base_url('login/index/x/' . $module . '/' . $idModule);
-                $mensajeSMS = "New Service Order App - VCI"
+                $mensajeSMS = "New Service Order App - Lev West"
                     . "\nSO #: " . $data['idServiceOrder']
                     . "\nUnit #: " . $vehicleInfo[0]['unit_number']
                     . "\nVIN #: " . $vehicleInfo[0]['vin_number']
@@ -289,7 +289,7 @@ class Serviceorder extends BaseController
                     $module   = base64url_encode('ID_MODULE_SERVICE_ORDER');
                     $idModule = base64url_encode($data['idServiceOrder']);
                     $urlMovil = base_url('login/index/x/' . $module . '/' . $idModule);
-                    $mensajeSMS = "Service Order App - VCI"
+                    $mensajeSMS = "Service Order App - Lev West"
                         . "\nSO #: " . $data['idServiceOrder']
                         . "\nUnit #: " . $vehicleInfo[0]['unit_number']
                         . "\nVIN #: " . $vehicleInfo[0]['vin_number']
@@ -535,7 +535,7 @@ class Serviceorder extends BaseController
             $module   = base64url_encode('ID_MODULE_SERVICE_ORDER');
             $idModule = base64url_encode($idServiceOrder);
             $urlMovil = base_url('login/index/x/' . $module . '/' . $idModule);
-            $mensajeSMS = "Service Order App - VCI"
+            $mensajeSMS = "Service Order App - Lev West"
                 . "\nSO #: " . $idServiceOrder
                 . "\nUnit #: " . $vehicleInfo[0]['unit_number']
                 . "\nVIN #: " . $vehicleInfo[0]['vin_number']
@@ -643,7 +643,7 @@ class Serviceorder extends BaseController
             $emailBody = 'There is an urgent need to carry out <b>Preventive Maintenance</b> as soon as possible.'
                 . '<br>Follow the link to see the list. '
                 . '<a href=\'' . base_url('login/index/x/' . $module . '/x') . '\'>Click here</a>';
-            $smsMessage = $subject . ' App - VCI'
+            $smsMessage = $subject . ' App - Lev West'
                 . "\nThere is an urgent need to carry out Preventive Maintenance as soon as possible."
                 . "\nFollow the link to see the list."
                 . "\n\n" . base_url('login/index/x/' . $module . '/x');

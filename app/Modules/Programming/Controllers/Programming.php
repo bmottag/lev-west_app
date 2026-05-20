@@ -527,7 +527,7 @@ class Programming extends BaseController
                                         if ($datetime1 < $datetime2) {
                                             if ($dato['sms_inspection'] == 0) {
                                                 $this->update_sms_worker($dato['id_programming_worker'], 'sms_inspection', 1);
-                                                $mensaje  = "INSPECTION APP-VCI";
+                                                $mensaje  = "INSPECTION APP-Lev West";
                                                 $mensaje .= "\nDo not forget to do the Inspection:";
                                                 $mensaje .= "\n" . $inspeccionesValues['unit_description'];
                                                 try {
@@ -537,7 +537,7 @@ class Programming extends BaseController
                                                 }
                                             } elseif ($dato['sms_inspection'] == 1) {
                                                 $this->update_sms_worker($dato['id_programming_worker'], 'sms_inspection', 2);
-                                                $mensaje  = "INSPECTION APP-VCI";
+                                                $mensaje  = "INSPECTION APP-Lev West";
                                                 $mensaje .= "\nThe user has not done the Inspection:";
                                                 $mensaje .= "\n" . $dato['name'] . ' - ' . $inspeccionesValues['unit_description'];
                                                 try {
@@ -637,7 +637,7 @@ class Programming extends BaseController
                                 if ($datetime1 < $datetime2) {
                                     if ($dato['sms_safety'] == 0) {
                                         $this->update_sms_worker($dato['id_programming_worker'], 'sms_safety', 1);
-                                        $mensaje  = "FLHA APP-VCI";
+                                        $mensaje  = "FLHA APP-Lev West";
                                         $mensaje .= "\nDo not forget to do the FLHA:";
                                         $mensaje .= "\n" . $lista['job_description'];
                                         try {
@@ -647,7 +647,7 @@ class Programming extends BaseController
                                         }
                                     } elseif ($dato['sms_safety'] == 1) {
                                         $this->update_sms_worker($dato['id_programming_worker'], 'sms_safety', 2);
-                                        $mensaje  = "FLHA APP-VCI";
+                                        $mensaje  = "FLHA APP-Lev West";
                                         $mensaje .= "\nThe user has not done the FLHA:";
                                         $mensaje .= "\n" . $dato['name'];
                                         try {
@@ -687,7 +687,7 @@ class Programming extends BaseController
                                 if ($datetime1 < $datetime2) {
                                     if ($dato['sms_jso'] == 0) {
                                         $this->update_sms_worker($dato['id_programming_worker'], 'sms_jso', 1);
-                                        $mensaje  = "JSO APP-VCI";
+                                        $mensaje  = "JSO APP-Lev West";
                                         $mensaje .= "\nDo not forget to do the JSO:";
                                         $mensaje .= "\n" . $lista['job_description'];
                                         try {
@@ -697,7 +697,7 @@ class Programming extends BaseController
                                         }
                                     } elseif ($dato['sms_jso'] == 1) {
                                         $this->update_sms_worker($dato['id_programming_worker'], 'sms_jso', 2);
-                                        $mensaje  = "JSO APP-VCI";
+                                        $mensaje  = "JSO APP-Lev West";
                                         $mensaje .= "\nThe user has not done the JSO:";
                                         $mensaje .= "\n" . $dato['name'];
                                         try {
@@ -778,7 +778,7 @@ class Programming extends BaseController
                                 if ($datetime1 < $datetime2) {
                                     if ($dato['sms_safety'] == 0) {
                                         $this->update_sms_worker($dato['id_programming_worker'], 'sms_safety', 1);
-                                        $mensaje  = "IHSR APP-VCI";
+                                        $mensaje  = "IHSR APP-Lev West";
                                         $mensaje .= "\nDo not forget to do the IHSR:";
                                         $mensaje .= "\n" . $lista['job_description'];
                                         try {
@@ -788,7 +788,7 @@ class Programming extends BaseController
                                         }
                                     } elseif ($dato['sms_safety'] == 1) {
                                         $this->update_sms_worker($dato['id_programming_worker'], 'sms_safety', 2);
-                                        $mensaje  = "IHSR APP-VCI";
+                                        $mensaje  = "IHSR APP-Lev West";
                                         $mensaje .= "\nThe user has not done the IHSR:";
                                         $mensaje .= "\n" . $dato['name'];
                                         try {
@@ -930,7 +930,7 @@ class Programming extends BaseController
     {
         try {
             $smsService = new \App\Libraries\SmsService();
-            $mensaje    = "APP VCI - Planning\n\n{$employee} confirmed the plan for {$dateProgramming} at {$hora}.";
+            $mensaje    = "APP Lev West - Planning\n\n{$employee} confirmed the plan for {$dateProgramming} at {$hora}.";
             $smsService->send('+1' . $movil, $mensaje);
         } catch (\Throwable $e) {
             log_message('error', '[send_confirmation] ' . $e->getMessage());

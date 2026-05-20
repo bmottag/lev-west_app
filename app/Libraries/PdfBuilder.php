@@ -10,8 +10,8 @@ class PdfBuilder
     {
         $pdf = new TCPDF();
 
-        $pdf->SetCreator('VCI');
-        $pdf->SetAuthor('VCI');
+        $pdf->SetCreator('Lev West');
+        $pdf->SetAuthor('Lev West');
         $pdf->SetTitle($title);
 
         $pdf->setPrintHeader(false);
@@ -40,8 +40,8 @@ class PdfBuilder
         $pdf = new VciPDF();
         $pdf->setVciHeaderInfo($title, $subtitle);
 
-        $pdf->SetCreator('VCI');
-        $pdf->SetAuthor('VCI');
+        $pdf->SetCreator('Lev West');
+        $pdf->SetAuthor('Lev West');
         $pdf->SetTitle($title);
 
         $pdf->setPrintFooter(false);

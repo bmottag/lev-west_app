@@ -36,7 +36,7 @@ $(function(){
 						<div class="col-lg-12">
 							<div class="alert alert-info ">
 								<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-									Welcome to <b>VCI</b> Sign-In form. 
+									Welcome to <b>Lev West</b> Sign-In form. 
 							</div>
 						</div>
 					</div>

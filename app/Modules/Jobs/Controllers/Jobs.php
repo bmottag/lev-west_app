@@ -159,8 +159,8 @@ class Jobs extends BaseController
 	{
 		$pdf = new TCPDF();
 
-		$pdf->SetCreator('VCI');
-		$pdf->SetAuthor('VCI');
+		$pdf->SetCreator('Lev West');
+		$pdf->SetAuthor('Lev West');
 		$pdf->SetTitle('JOB HAZARDS ANALYSIS Report');
 
 		$pdf->setPrintHeader(false);
@@ -601,8 +601,8 @@ class Jobs extends BaseController
 	{
 		$pdf = new TCPDF();
 
-		$pdf->SetCreator('VCI');
-		$pdf->SetAuthor('VCI');
+		$pdf->SetCreator('Lev West');
+		$pdf->SetAuthor('Lev West');
 		$pdf->SetTitle('IHSR Report');
 
 		$pdf->setPrintHeader(false);
@@ -894,8 +894,8 @@ class Jobs extends BaseController
 	{
 		$pdf = new TCPDF();
 
-		$pdf->SetCreator('VCI');
-		$pdf->SetAuthor('VCI');
+		$pdf->SetCreator('Lev West');
+		$pdf->SetAuthor('Lev West');
 		$pdf->SetTitle('ERP Report');
 
 		$pdf->setPrintHeader(false);
@@ -1274,8 +1274,8 @@ class Jobs extends BaseController
 	{
 		$pdf = new TCPDF();
 
-		$pdf->SetCreator('VCI');
-		$pdf->SetAuthor('VCI');
+		$pdf->SetCreator('Lev West');
+		$pdf->SetAuthor('Lev West');
 		$pdf->SetTitle('JSO Report');
 
 		$pdf->setPrintHeader(false);
@@ -2041,8 +2041,8 @@ class Jobs extends BaseController
 	{
 		$pdf = new TCPDF();
 
-		$pdf->SetCreator('VCI');
-		$pdf->SetAuthor('VCI');
+		$pdf->SetCreator('Lev West');
+		$pdf->SetAuthor('Lev West');
 		$pdf->SetTitle('Excavation and Trenching Plan Report');
 
 		$pdf->setPrintHeader(false);
@@ -2277,8 +2277,8 @@ class Jobs extends BaseController
 	{
 		$pdf = new TCPDF();
 
-		$pdf->SetCreator('VCI');
-		$pdf->SetAuthor('VCI');
+		$pdf->SetCreator('Lev West');
+		$pdf->SetAuthor('Lev West');
 		$pdf->SetTitle('Fire Watch Report');
 
 		$pdf->setPrintHeader(false);

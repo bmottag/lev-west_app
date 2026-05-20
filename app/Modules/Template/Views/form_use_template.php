@@ -51,17 +51,17 @@
 								<div class="col-lg-12">				
 									<div class="panel panel-warning">
 										<div class="panel-heading">
-											<a name="anclaWorker" ></a><strong>VCI WORKERS</strong>
+											<a name="anclaWorker" ></a><strong>Lev West WORKERS</strong>
 										</div>
 										<div class="panel-body">
 											<div class="col-lg-12">	
 <?php if($templateWorkers){ ?>
 												
 					<button type="button" class="btn btn-warning btn-lg btn-block" data-toggle="modal" data-target="#modalWorker" id="x">
-							<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add VCI Workers
+							<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Lev West Workers
 					</button>
 <?php }else { ?>
-					<a href="<?php echo base_url("template/add_workers_template/" . $template[0]["id_template"]); ?>" class="btn btn-warning btn-lg btn-block"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add VCI Workers</a>
+					<a href="<?php echo base_url("template/add_workers_template/" . $template[0]["id_template"]); ?>" class="btn btn-warning btn-lg btn-block"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Lev West Workers</a>
 												
 <?php } ?>
 											

@@ -94,7 +94,7 @@ class Prices extends BaseController
 	{
 		$data['vehicleState'] = 1;
 		$data['companyType'] = $companyType;
-		$data['title'] = $companyType==1?"VCI":"RENTALS";
+		$data['title'] = $companyType==1?"Lev West":"RENTALS";
 
 		$arrParam = array(
 			"companyType" => $companyType,
@@ -135,7 +135,7 @@ class Prices extends BaseController
 	{
 		$data['vehicleState'] = 1;
 		$data['companyType'] = $companyType;
-		$data['title'] = $companyType==1?"VCI":"RENTALS";
+		$data['title'] = $companyType==1?"Lev West":"RENTALS";
 
 		//job info
 		$data['jobInfo'] = $this->generalModel->get_job(["idJob" => $idJob]);

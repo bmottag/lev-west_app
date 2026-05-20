@@ -174,7 +174,7 @@ class Inspection extends BaseController
                     $emailBody .= $failsEmail ? '<p><b>Fails:</b><br>' . $failsEmail . '</p>' : '';
                     $emailBody .= "<p>Follow the link to see the list. <a href='{$urlMovil}'>Click here</a></p>";
 
-                    $smsMessage  = $subject . ' App - VCI';
+                    $smsMessage  = $subject . ' App - Lev West';
                     $smsMessage .= "\nUnit Number: " . $vehicleInfo[0]['unit_number'];
                     $smsMessage .= $comments !== '' ? "\nComments: " . $comments : '';
                     $smsMessage .= $fails;
@@ -274,7 +274,7 @@ class Inspection extends BaseController
                     $emailBody .= '<br><strong>Comments: </strong>' . esc($comments);
                     $emailBody .= "<p>Follow the link to see the list. <a href='{$urlMovil}'>Click here</a></p>";
 
-                    $smsMessage  = 'Inspection with comments App - VCI';
+                    $smsMessage  = 'Inspection with comments App - Lev West';
                     $smsMessage .= "\nUnit Number: " . $vehicleInfo[0]['unit_number'];
                     $smsMessage .= "\nComments: " . $comments;
                     $smsMessage .= "\n\nSee: " . $urlMovil;
@@ -373,7 +373,7 @@ class Inspection extends BaseController
                     $emailBody .= '<br><strong>Comments: </strong>' . esc($comments);
                     $emailBody .= "<p>Follow the link to see the list. <a href='{$urlMovil}'>Click here</a></p>";
 
-                    $smsMessage  = 'Inspection with comments App - VCI';
+                    $smsMessage  = 'Inspection with comments App - Lev West';
                     $smsMessage .= "\nUnit Number: " . $vehicleInfo[0]['unit_number'];
                     $smsMessage .= "\nComments: " . $comments;
                     $smsMessage .= "\n\nSee: " . $urlMovil;
@@ -475,7 +475,7 @@ class Inspection extends BaseController
                     $emailBody .= '<br><strong>Comments: </strong>' . esc($comments);
                     $emailBody .= "<p>Follow the link to see the list. <a href='{$urlMovil}'>Click here</a></p>";
 
-                    $smsMessage  = 'Inspection with comments App - VCI';
+                    $smsMessage  = 'Inspection with comments App - Lev West';
                     $smsMessage .= "\nUnit Number: " . $vehicleInfo[0]['unit_number'];
                     $smsMessage .= "\nComments: " . $comments;
                     $smsMessage .= "\n\nSee: " . $urlMovil;
@@ -629,7 +629,7 @@ class Inspection extends BaseController
                     $emailBody .= $failsEmail ?: '';
                     $emailBody .= "<p>Follow the link to see the list. <a href='{$urlMovil}'>Click here</a></p>";
 
-                    $smsMessage  = $subject . ' App - VCI';
+                    $smsMessage  = $subject . ' App - Lev West';
                     $smsMessage .= "\nUnit Number: " . $vehicleInfo[0]['unit_number'];
                     $smsMessage .= $comments !== '' ? "\nComments: " . $comments : '';
                     $smsMessage .= $fails;
@@ -781,7 +781,7 @@ class Inspection extends BaseController
                     $emailBody .= $failsEmail ?: '';
                     $emailBody .= "<p>Follow the link to see the list. <a href='{$urlMovil}'>Click here</a></p>";
 
-                    $smsMessage  = $subject . ' App - VCI';
+                    $smsMessage  = $subject . ' App - Lev West';
                     $smsMessage .= "\nUnit Number: " . $vehicleInfo[0]['unit_number'];
                     $smsMessage .= $comments !== '' ? "\nComments: " . $comments : '';
                     $smsMessage .= $fails;

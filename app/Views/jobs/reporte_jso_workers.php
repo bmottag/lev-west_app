@@ -2,7 +2,7 @@
 	// create some HTML content
 	$html = '<br><h2 align="center" style="color:#337ab7;">SITE ORIENTATION MUST BE COMPLETED PRIOR TO COMMENCING WORK<br></h2>';
 	
-	$html .= 'By signing below the worker(s) agreed to comply with all VCI’s policies as well as with all safe operations required on
+	$html .= 'By signing below the worker(s) agreed to comply with all Lev West’s policies as well as with all safe operations required on
 this specific site, also is aware of all potential hazards, keeping in mind that all equipment has the right of way. Do not
 walk behind any piece of equipment before making EYE CONTACT with the operator.<br><br>';
 

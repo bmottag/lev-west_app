@@ -233,7 +233,7 @@ $(function(){
 		<div class="col-lg-12">				
 			<div class="panel panel-primary">
 				<div class="panel-heading">
-					<i class="fa fa-user"></i> <strong>VCI WORKERS</strong>
+					<i class="fa fa-user"></i> <strong>Lev West WORKERS</strong>
 				</div>
 				<div class="panel-body">
 

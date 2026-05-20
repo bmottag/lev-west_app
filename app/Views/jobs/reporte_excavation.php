@@ -551,7 +551,7 @@
 							
 							$html.= '<tr bgcolor="#337ab7" style="color:white;">';
 										for ($j = $star; $j < $finish; $j++) {	
-											$html.= '<th align="center"><strong>' . $excavationWorkers[$j]['name'] . '<br>VCI</strong></th>';
+											$html.= '<th align="center"><strong>' . $excavationWorkers[$j]['name'] . '<br>Lev West</strong></th>';
 										}
 							$html.= '</tr>';
 						}

@@ -77,7 +77,7 @@
 							$html.= '<tr bgcolor="#337ab7" style="color:white;">
 										<th align="center"><strong>Company</strong></th>';
 										for ($j = $star; $j < $finish; $j++) {	
-											$html.= '<th align="center"><strong>VCI</strong></th>';
+											$html.= '<th align="center"><strong>Lev West</strong></th>';
 										}
 							$html.= '</tr>';
 							

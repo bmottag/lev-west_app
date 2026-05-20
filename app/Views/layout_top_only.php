@@ -9,7 +9,7 @@
 	<meta name="author" content="bmottag">
 	<meta name="baseurl" content="<?php echo base_url() ?>" />
 
-	<title>VCI</title>
+	<title>Lev West</title>
 	<link rel="icon" type="image/png" href="<?php echo base_url("images/favicon.png"); ?>" />
 
 	<!-- Bootstrap Core CSS -->

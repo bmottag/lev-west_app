@@ -88,7 +88,7 @@ if ($userRol == 99) {
 											'imageUrl'        => $information["vci_signature"] ?? null,
 											'formAction'      => base_url('hauling/save_signature'),
 											'height'          => 200,
-											'signButtonText'  => ' VCI Signature ',
+											'signButtonText'  => ' Lev West Signature ',
 											'id' 			  => 'vci',
 											'extraValue' 	  => $information["id_hauling"]
 										]) ?>
@@ -153,7 +153,7 @@ if ($userRol == 99) {
 
 
 							<div class="form-group">
-								<label class="col-sm-4 control-label" for="company">VCI or Subcontractor</label>
+								<label class="col-sm-4 control-label" for="company">Lev West or Subcontractor</label>
 								<div class="col-sm-5">
 									<select name="CompanyType" id="CompanyType" class="form-control" required <?php if ($information) { ?>
 										disabled
@@ -162,7 +162,7 @@ if ($userRol == 99) {
 										<option value="">Select...</option>
 										<option value=1 <?php if ($information && $information["company_type"] == 1) {
 															echo "selected";
-														}  ?>>VCI</option>
+														}  ?>>Lev West</option>
 										<option value=2 <?php if ($information && $information["company_type"] == 2) {
 															echo "selected";
 														}  ?>>Subcontractor</option>

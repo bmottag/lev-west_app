@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 	
-    <title>VCI</title>
+    <title>Lev West</title>
     <link rel="icon" type="image/png" href="<?php echo base_url("images/favicon.png"); ?>" />
 
     <!-- Bootstrap Core CSS -->
