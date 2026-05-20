@@ -135,3 +135,8 @@ if (file_exists(APPPATH.'Modules/Template/Config/Routes.php')) {
 if (file_exists(APPPATH.'Modules/Workorders/Config/Routes.php')) {
     require APPPATH.'Modules/Workorders/Config/Routes.php';
 }
+
+// Cargar rutas del módulo Invoices
+if (file_exists(APPPATH.'Modules/Invoices/Config/Routes.php')) {
+    require APPPATH.'Modules/Invoices/Config/Routes.php';
+}
