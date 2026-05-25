@@ -145,7 +145,7 @@ class InvoicesModel extends Model
     {
         $rate     = $post['rate'];
         $quantity = $post['quantity'];
-        $markup   = $post['markup'];
+		$markup = $post['markup'] ?? 0;
         $value    = $rate * $quantity * ($markup + 100) / 100;
 
         $data = [
