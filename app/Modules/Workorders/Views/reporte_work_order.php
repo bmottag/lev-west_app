@@ -7,8 +7,8 @@
 					<th width="60%">
 					<b>P.O. Box </b> 84209 RPO MARKET MALL <br>
 					Calgary - Alberta - T3A 5C4 <br>
-					<b>Phone:</b> 587-892-9616 / <b>Fax:</b> 403-910-0752<br>
-					<a href="http://www.v-contracting.ca/" dir="ltr">www.v-contracting.ca/</a>
+					<b>Phone:</b> (403)-399-0160 / <b>Fax:</b> 403-910-0752<br>
+					<a href="https://lev-west.com/" dir="ltr">https://lev-west.com/</a>
 					</th>';
 					
 			$html.= '<th width="40%">
@@ -244,9 +244,9 @@
 							1. All Work Tickets will be attached to an Invoice otherwise can be deemed as an Invoice<br>
 							2. Please refer to the W.O. # in all your correspondence<br>
 							3. Please send correspondence regarding this work order to:<br><br>
-							<b>Hugo Villamil</b><br>
-							<a href="mailto:hugo@v-contracting.com">hugo@v-contracting.com</a><br>
-							<b>Ph:</b>(587)-892-9616<br><br>
+							<b>Fabian Villamil</b><br>
+							<a href="mailto:fabian.v@lev-west.com">fabian.v@lev-west.com</a><br>
+							<b>Ph:</b>(403)-399-0160<br><br>
 							<b>Signature Lev West Rep:</b> <br>
 							<img src="http://v-contracting.ca/app/images/employee/signature/hugo_boss.png" width="150" height="150" border="0" />
 						</td>

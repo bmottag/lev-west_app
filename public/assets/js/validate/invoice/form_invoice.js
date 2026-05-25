@@ -130,8 +130,8 @@ $( document ).ready( function () {
 			$('#list_work_order').html('<option value="">Select...</option>');
 			$('#selected_link_id').val('');
 		}
-
-		if (idJob > 0 || idJob != '') {			
+	
+		if (idJob && idJob > 0){	
 			$.ajax({
 				type: "POST",	
 				url: base_url + "workorders/foremanInfo",	
@@ -140,7 +140,7 @@ $( document ).ready( function () {
 				contentType: "application/x-www-form-urlencoded;charset=UTF-8",
 				cache: false,
 				success: function(data){
-					if( data.result )//true
+					if ( data.status === "success" )
 					{	               
 						$("#company").val(data.company_id);    
 						$("#companyName").val(data.company_name);
