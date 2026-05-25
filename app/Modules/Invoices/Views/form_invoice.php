@@ -1,4 +1,4 @@
-<script type="text/javascript" src="<?php echo base_url("assets/js/validate/invoice/form_invoice.js?v=1.0.0"); ?>"></script>
+<script type="text/javascript" src="<?php echo base_url("assets/js/validate/invoice/form_invoice.js?v=2.0.0"); ?>"></script>
 
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -30,11 +30,11 @@
 <script>
 	$(function() {
 
-		$(".btn-info").click(function() {
+		$(".btn-itmes").click(function() {
 			var oID = $(this).attr("id");
 			$.ajax({
 				type: 'POST',
-				url: base_url + 'invoices/cargarModalItems',
+				url: base_url + 'invoices/cargar_modal_items',
 				data: {
 					'idInvoice': oID
 				},
@@ -334,7 +334,7 @@
 
 						<?php if (!$deshabilitar) { ?>
 							<div class="col-lg-12">
-								<button type="button" class="btn btn-info btn-block" data-toggle="modal" data-target="#modal" id="<?php echo $idInvoice; ?>">
+								<button type="button" class="btn btn-info btn-block btn-itmes" data-toggle="modal" data-target="#modal" id="<?php echo $idInvoice; ?>">
 									<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add an Item
 								</button><br>
 							</div>

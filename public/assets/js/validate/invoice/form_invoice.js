@@ -1,7 +1,7 @@
 var firstLoad = true;
 
 function previewInvoice(id){
-	var url = base_url + "invoices/generaInvoicePDF/" + id;
+	var url = base_url + "invoices/genera_invoice_pdf/" + id;
 	$("#iframePreview").attr("src", url);
 	$("#modalPreview").modal("show");
 }

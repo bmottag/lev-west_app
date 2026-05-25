@@ -1,0 +1,127 @@
+/* Estilo desktop */
+.table-desktop-numeric{
+    text-align:right; /* Números a la derecha */
+}
+
+.table-hover tbody tr:hover{
+    background:#f5f9ff; /* Hover más visible */
+}
+
+.action-col{
+    white-space:nowrap; /* Mantiene botones en una sola línea */
+}
+
+/* Textarea e inputs más compactos en desktop */
+@media (min-width:768px){
+    .table-mobile textarea{
+        min-height:34px;
+        resize:vertical;
+    }
+    .table-mobile input,
+    .table-mobile textarea{
+        font-size:13px;
+        padding:4px 6px;
+    }
+    /* Alineación numérica dentro de inputs */
+    .table-desktop-numeric input{
+        text-align:right;
+    }
+    /* Limitar ancho de columnas si quieres proporción desktop */
+    .table-mobile td:nth-child(1){ width:50%; } /* Description */
+    .table-mobile td:nth-child(2){ width:10%; } /* Quantity */
+    .table-mobile td:nth-child(3){ width:10%; } /* Unit */
+    .table-mobile td:nth-child(4){ width:10%; } /* Rate */
+    .table-mobile td:nth-child(5){ width:10%; } /* Total/Value */
+    .table-mobile td:nth-child(6){ width:10%; } /* Actions */
+}
+
+/* ---------------------------------- */
+/* Etiquetas solo visibles en móvil */
+.td-label{
+    display:none;
+    font-weight:600;
+    margin-bottom:4px;
+    color:#555;
+}
+
+/* ---------------------------------- */
+/* Estilo móvil tipo card */
+@media (max-width:768px){
+    .table-mobile{
+        border:0;
+    }
+
+    .table-mobile thead{
+        display:none;
+    }
+
+    .table-mobile,
+    .table-mobile tbody,
+    .table-mobile tr,
+    .table-mobile td{
+        display:block;
+        width:100%;
+    }
+
+    .table-mobile tr{
+        border:1px solid #ddd;
+        border-radius:8px;
+        padding:15px;
+        margin-bottom:15px;
+        background:#fff;
+        box-shadow:0 2px 6px rgba(0,0,0,0.08);
+    }
+
+    .table-mobile td{
+        border:none !important;
+        padding:6px 0;
+    }
+
+    .td-label{
+        display:block;
+    }
+
+    /* Botones Actions en móvil más fáciles de tocar */
+    .action-col .btn{
+        width:100%;
+        margin-top:5px;
+    }
+}
+
+/* ---------------------------------- */
+/* Campos monetarios */
+.money{
+    text-align:right;
+    font-family: monospace;
+}
+
+/* Totales secundarios */
+.total-field{
+    font-size:18px;
+    font-weight:600;
+}
+
+/* Total final del invoice */
+.invoice-total{
+    font-size:20px;
+    font-weight:bold;
+    background:#f5f5f5;
+}
+
+/* Balance pendiente */
+.balance-due{
+    font-size:18px;
+    font-weight:bold;
+    background:#fff3cd;
+}
+
+/* Balance pagado */
+.balance-paid{
+    font-size:18px;
+    font-weight:bold;
+    background:#dff0d8;
+}
+
+.invoice-summary input{
+    text-align:right;
+}

@@ -21,4 +21,5 @@ $routes->group('invoices', ['namespace' => 'App\Modules\Invoices\Controllers'], 
     $routes->post('upload_file/(:num)',          'Invoices::upload_file/$1');
     $routes->post('add_payment/(:num)',          'Invoices::add_payment/$1');
     $routes->get('send_invoice_email/(:num)',    'Invoices::sendInvoiceEmail/$1');
+    $routes->post('woList',                      'Invoices::woList');
 });
