@@ -309,7 +309,60 @@ class Invoices extends BaseController
 
         $data['items'] = $this->invoicesModel->get_invoices_items($arrParam);
 
-        $pdf = new TCPDF();
+        $pdf = new class() extends TCPDF {
+            public function Footer()
+            {
+                $this->SetY(-1);
+                $this->Image(
+                    FCPATH . 'images/flowers.png',
+                    3,
+                    $this->GetY() - 80,
+                    30,
+                    0
+                );
+
+                $this->SetFont('helvetica', '', 8);
+                $this->SetTextColor(0, 0, 0);
+
+                $pageWidth = $this->getPageWidth();
+                $margin    = 20;
+
+                $this->SetY(-25);
+                $this->Cell(
+                    0,
+                    5,
+                    'Send electronic payments to: Invoice@Lev-west.com       GST No.: 791493158RT0001',
+                    0,
+                    1,
+                    'C'
+                );
+
+                $this->SetFont('helvetica', '', 7.5);
+                $this->SetTextColor(120, 120, 120);
+                $this->SetY($this->GetY() + 2);
+
+                $legal = 'All invoices are due and payable within fifteen (15) days of the invoice date. Any invoice outstanding beyond thirty (30) days will be subject to an administrative fee of eight percent (8%) per month until payment is received in full.';
+
+                $this->MultiCell(
+                    $pageWidth - 2 * $margin,
+                    4,
+                    $legal,
+                    0,
+                    'C',
+                    false,
+                    1,
+                    '',
+                    '',
+                    true,
+                    0,
+                    false,
+                    true,
+                    0,
+                    'T',
+                    false
+                );
+            }
+        };
         $pdf->SetCreator('Lev West');
         $pdf->SetAuthor('Lev West');
         $pdf->SetTitle('Invoice');
