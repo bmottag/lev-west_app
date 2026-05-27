@@ -214,7 +214,7 @@
 						</li>
 						<li class='active'><a href="<?php echo base_url('workorders/view_workorder/' . $information[0]["id_workorder"]) ?>">Asign rate</a>
 						</li>
-						<li><a href="<?php echo base_url('workorders/generaWorkOrderPDF/' . $information[0]["id_workorder"]) ?>" target="_blank">Download invoice</a>
+						<li><a href="<?php echo base_url('workorders/generaWorkTicketPDF/' . $information[0]["id_workorder"]) ?>" target="_blank">Download invoice</a>
 						</li>
 						<?php
 						$userRol = session()->get("rol");

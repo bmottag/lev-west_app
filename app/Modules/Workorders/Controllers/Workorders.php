@@ -882,6 +882,50 @@ class Workorders extends BaseController
     }
 
     /**
+     * Generate Work Ticket PDF (new ticket-style layout)
+     * @param int $idWorkOrder
+     */
+    public function generaWorkTicketPDF($idWorkOrder)
+    {
+        $arrParam = ['idWorkOrder' => $idWorkOrder];
+
+        $data['info'] = $this->workordersModel->get_workorder_by_idJob($arrParam);
+        if (empty($data['info'])) {
+            throw new \CodeIgniter\Exceptions\PageNotFoundException('No Work Order information found for ID: ' . $idWorkOrder);
+        }
+
+        $arrParam['view_pdf']            = true;
+        $data['workorderPersonal']  = $this->workordersModel->get_workorder_personal($arrParam);
+        $data['workorderMaterials'] = $this->workordersModel->get_workorder_materials($arrParam);
+        $data['workorderReceipt']   = $this->workordersModel->get_workorder_receipt($arrParam);
+        $data['workorderEquipment'] = $this->workordersModel->get_workorder_equipment($arrParam);
+        $data['workorderOcasional'] = $this->workordersModel->get_workorder_ocasional($arrParam);
+
+        $pdf = new \TCPDF('L', PDF_UNIT, 'LETTER', true, 'UTF-8', false);
+        $pdf->SetCreator('Lev West');
+        $pdf->SetAuthor('Lev West');
+        $pdf->SetTitle('Work Ticket #' . $idWorkOrder);
+        $pdf->setPrintHeader(false);
+        $pdf->setPrintFooter(false);
+        $pdf->SetMargins(8, 8, 8);
+        $pdf->SetAutoPageBreak(true, 10);
+        $pdf->SetFont('dejavusans', '', 7);
+        $pdf->AddPage();
+
+        $html = view('App\Modules\Workorders\Views\reporte_work_ticket', $data);
+        $pdf->writeHTML($html, true, false, true, false, '');
+        $pdf->lastPage();
+
+        if (ob_get_length()) {
+            ob_end_clean();
+        }
+
+        return $this->response
+            ->setHeader('Content-Type', 'application/pdf')
+            ->setBody($pdf->Output('work_ticket_' . $idWorkOrder . '.pdf', 'I'));
+    }
+
+    /**
      * Generate Work Order Report in XLS
      * @param int $jobId
      * @since 10/02/2020

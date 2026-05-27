@@ -33,6 +33,7 @@ $routes->group('workorders', ['namespace' => 'App\Modules\Workorders\Controllers
     $routes->get('wo_by_state/(:any)/(:any)',      'Workorders::wo_by_state/$1/$2');
     $routes->get('wo_by_state/(:any)',             'Workorders::wo_by_state/$1');
     $routes->get('generaWorkOrderPDF/(:num)',      'Workorders::generaWorkOrderPDF/$1');
+    $routes->get('generaWorkTicketPDF/(:num)',     'Workorders::generaWorkTicketPDF/$1');
     $routes->get('generaWorkOrderXLS/(:any)',      'Workorders::generaWorkOrderXLS/$1');
     $routes->get('search_income',                  'Workorders::search_income');
     $routes->post('search_income',                 'Workorders::search_income');

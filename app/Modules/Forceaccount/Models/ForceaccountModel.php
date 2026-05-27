@@ -262,24 +262,24 @@ class ForceaccountModel extends Model
     {
         $idForceaccount = $post['hddidForceaccount'];
         $type           = $post['type'];
-        $truck          = $post['truck'];
+        $truck          = $post['truck'] ?? null;
 
         if ($type == 8) {
             $truck = 5;
         }
-        $standby = ($type != 3) ? 2 : $post['standby'];
+        $standby = ($type != 3) ? 2 : ($post['standby'] ?? null);
 
         $data = [
             'fk_id_forceaccount' => $idForceaccount,
             'fk_id_type_2'       => $type,
             'fk_id_vehicle'      => $truck,
-            'fk_id_attachment'   => $post['attachment'],
-            'other'              => $post['otherEquipment'],
-            'operatedby'         => $post['operatedby'],
+            'fk_id_attachment'   => $post['attachment'] ?? null,
+            'other'              => $post['otherEquipment'] ?? null,
+            'operatedby'         => $post['operatedby'] ?? null,
             'hours'              => $post['hour'],
             'quantity'           => $post['quantity'],
             'standby'            => $standby,
-            'description'        => $post['description'],
+            'description'        => $post['description'] ?? null,
         ];
 
         $result = $this->db->table('forceaccount_equipment')->insert($data);

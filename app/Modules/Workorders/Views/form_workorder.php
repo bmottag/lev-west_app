@@ -127,7 +127,7 @@
 								</li>
 								<li><a href="<?php echo base_url('workorders/view_workorder/' . $information[0]["id_workorder"]) ?>">Asign rate</a>
 								</li>
-								<li><a href="<?php echo base_url('workorders/generaWorkOrderPDF/' . $information[0]["id_workorder"]) ?>" target="_blank">Download invoice</a>
+								<li><a href="<?php echo base_url('workorders/generaWorkTicketPDF/' . $information[0]["id_workorder"]) ?>" target="_blank">Download invoice</a>
 								</li>
 								<?php
 								if (($userRol == ID_ROL_SUPER_ADMIN || $userRol == ID_ROL_ENGINEER || $userRol == ID_ROL_WORKORDER) && $information[0]['state'] != 4) {
