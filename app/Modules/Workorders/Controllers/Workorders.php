@@ -894,6 +894,8 @@ class Workorders extends BaseController
             throw new \CodeIgniter\Exceptions\PageNotFoundException('No Work Order information found for ID: ' . $idWorkOrder);
         }
 
+        $data['logo'] = FCPATH . 'images/logo_black.png';
+
         $arrParam['view_pdf']            = true;
         $data['workorderPersonal']  = $this->workordersModel->get_workorder_personal($arrParam);
         $data['workorderMaterials'] = $this->workordersModel->get_workorder_materials($arrParam);
