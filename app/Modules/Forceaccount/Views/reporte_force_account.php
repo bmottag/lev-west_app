@@ -1,386 +1,322 @@
 <?php
-$html= '
-<style>
-	table {
-		font-family: arial, sans-serif;
-		border-collapse: collapse;
-		width: 100%;
-	}
+// ── Totals ───────────────────────────────────────────────────────────────────
+$totalEquipment = 0;
+$totalPersonal  = 0;
+$totalOcasional = 0;
+$totalMaterials = 0;
+$totalReceipts  = 0;
 
-	td, th {
-		border: 1px solid #dddddd;
-		text-align: left;
-		padding: 8px;
-	}
-	</style>';
+if ($forceaccountEquipment) foreach ($forceaccountEquipment as $r) $totalEquipment += $r['value'];
+if ($forceaccountPersonal)  foreach ($forceaccountPersonal  as $r) $totalPersonal  += $r['value'];
+if ($forceaccountOcasional) foreach ($forceaccountOcasional as $r) $totalOcasional += $r['value'];
+if ($forceaccountMaterials) foreach ($forceaccountMaterials as $r) $totalMaterials += $r['value'];
+if ($forceaccountReceipt)   foreach ($forceaccountReceipt   as $r) $totalReceipts  += $r['value'];
 
-	if (empty($info[0]['signature_wo'])) {
-		$html.= '<div style="
-					color: red;
-					font-weight: bold;
-					background-color: #ffe6e6;
-					border: 2px dashed red;
-					padding: 10px;
-					border-radius: 8px;
-					text-align: center;
-				">
-					This document is not valid until it has been signed by the client representative.
-				</div><br>';
-	}
+$ticketTotal = $totalEquipment + $totalPersonal + $totalOcasional + $totalMaterials + $totalReceipts;
+$fecha       = date('m/d/Y', strtotime($info[0]['date']));
+$movil       = !empty($info[0]['foreman_movil_number_wo'])
+               ? $info[0]['foreman_movil_number_wo']
+               : ($info[0]['movil_number'] ?? '');
 
+$eqArr  = $forceaccountEquipment ?: [];
+$mpArr  = $forceaccountPersonal  ?: [];
+$subArr = $forceaccountOcasional ?: [];
+$matArr = $forceaccountMaterials ?: [];
+$recArr = $forceaccountReceipt   ?: [];
 
-$html.= '<table border="0" cellspacing="0" cellpadding="5">';
-$html.= '<tr>
-		<th width="20%"><b>Project: </b></th><th width="35%">' . $info[0]['job_description'] . '</th>
-		<th width="15%"><b>Bill To: </b></th><th width="30%">' . $info[0]['company_name'] . '</th>
-		</tr>';
+$maxBodyRows = max(count($eqArr), count($mpArr), count($subArr), 3);
+$maxMatRows  = max(count($matArr), 2);
+$maxRecRows  = max(count($recArr), 2);
 
-$html.= '<tr>
-		<th><b>Description of Work: </b></th><th>' . $info[0]['observation'] . '</th>
-		</tr>';
-$html.= '</table>';
-$html.= '<br><br>';
+// ── Color tokens ─────────────────────────────────────────────────────────────
+$yellow = '#FFFF99';
+$lgray  = '#F0F0F0';
+$border = '#333333';
 
-$item = 1;
-// INICIO PERSONAL
-$subTotalPersonal = 0;
-if($forceaccountPersonal)
-{
-	$html.= '<table border="0" cellspacing="0" cellpadding="4">';
+// ── Cell style helpers ───────────────────────────────────────────────────────
+$base  = "border:0px solid $border; padding:3px 5px; font-size:7pt;";
+$mid   = "$base vertical-align:middle;";
+$ctr   = "$base text-align:center; vertical-align:middle;";
+$rgt   = "$base text-align:right;  vertical-align:middle;";
+$bold  = "$base font-weight:bold;  vertical-align:middle;";
+$boldC = "$base font-weight:bold; text-align:center; vertical-align:middle;";
+$boldR = "$base font-weight:bold; text-align:right;  vertical-align:middle;";
+$yh    = "$base background-color:$yellow; font-weight:bold; text-align:center; vertical-align:middle;";
+$tot   = "$base background-color:$lgray;  font-weight:bold; text-align:right;  vertical-align:middle;";
+$totE  = "$base background-color:$lgray;  vertical-align:middle;";
+$dRow = 'line-height:16px; height:16px;';
 
-	$html.= '<tr>
-				<th align="center" colspan="3" width="70%"  bgcolor="#ff6b33" style="color:white;"><strong>Labour </strong></th>
-				<th align="center" rowspan="2" width="10%" bgcolor="#ff6b33" style="color:white;"><strong>HOURS </strong></th>
-				<th align="center" rowspan="2" width="10%" bgcolor="#ff6b33" style="color:white;"><strong>LABOUR RATE </strong></th>
-				<th align="center" rowspan="2" width="10%" bgcolor="#ff6b33" style="color:white;"><strong>AMOUNT </strong></th>
-			</tr>
-			<tr>
-				<th align="center" width="18%" bgcolor="#ff6b33" style="color:white;"><strong>Name </strong></th>
-				<th align="center" width="18%" bgcolor="#ff6b33" style="color:white;"><strong>Occupation </strong></th>
-				<th align="center" width="34%" bgcolor="#ff6b33" style="color:white;"><strong>Description </strong></th>
-			</tr>';
-	foreach ($forceaccountPersonal as $data):
-		$subTotalPersonal += $data['value'];
-		
-		$html.=		'<tr>
-					<th>' . $data['name']  . '</th>
-					<th>' . $data['employee_type'] . '</th>
-					<th>' . $data['description'] . '</th>
-					<th align="center">' . $data['hours'] . '</th>
-					<th align="right">$ ' . number_format($data['rate'], 2) . '</th>
-					<th align="right">$ ' . number_format($data['value'], 2) . '</th>';
-		$html.= '</tr>';
-	endforeach;
+$html = '<style>
+table { border-collapse:collapse; width:100%; }
+td, th { font-family:helvetica; font-size:7pt; border-spacing:0; }
+</style>';
 
-	$html.= '<tr>
-				<th colspan="5" align="right">Subtotal ' . $item  . '</th>
-				<th align="right">$ ' . number_format($subTotalPersonal, 2) . '</th>
-			</tr>';
+// ── Header with logo ─────────────────────────────────────────────────────────
+$html .= '<table border="0" width="100%" cellpadding="4">';
+$html .= '<tr>';
+$html .= '<td width="60%"></td>';
+$html .= '<td width="40%" align="right">';
+$html .= '<img src="' . $logo . '" height="60"><br>';
+$html .= '<b>Lev-West</b><br>';
+$html .= 'Phone: (403) 399-0160<br>';
+$html .= 'www.lev-west.com<br><br>';
+$html .= '</td>';
+$html .= '</tr>';
+$html .= '</table>';
 
-	$html.= '</table><br><br>';	
-	$item++;
+// ════════════════════════════════════════════════════════════════════════════
+// OUTER WRAPPER – narrow "Work Ticket" rotated label on the left
+// ════════════════════════════════════════════════════════════════════════════
+$html .= '<table border="0" style="width:100%; border-collapse:collapse;">';
+$html .= '<tr>';
+
+$html .= '<td style="width:3%; border:1px solid ' . $border . '; text-align:center; font-weight:bold;'
+       . ' font-size:9pt; vertical-align:middle; letter-spacing:1px;">'
+       . 'F<br>o<br>r<br>c<br>e<br>&nbsp;<br>A<br>c<br>c<br>o<br>u<br>n<br>t</td>';
+
+$html .= '<td style="
+    width:97%;
+    padding:0;
+    vertical-align:top;
+    border-left:1px solid '.$border.';
+    border-right:1px solid '.$border.';
+    border-bottom:1px solid '.$border.';
+">';
+
+// ════════════════════════════════════════════════════════════════════════════
+// TITLE ROW  –  Ticket# | "Lev West Work Ticket" | Date
+// ════════════════════════════════════════════════════════════════════════════
+// Columns: 7% | 73% | 9% | 11%
+$html .= '<table style="border-collapse:collapse; width:100%;">';
+$html .= '<tr>';
+$html .= '<td style="width:7%;  ' . $boldC . ' font-size:7pt;">Ticket#</td>';
+$html .= '<td style="width:73%; ' . $yh    . ' font-size:12pt;" rowspan="2">Lev West Force Account</td>';
+$html .= '<td style="width:9%;  ' . $boldC . '">Date</td>';
+$html .= '<td style="width:11%; ' . $ctr   . '">' . esc($fecha) . '</td>';
+$html .= '</tr>';
+$html .= '<tr>';
+$html .= '<td style="' . $boldC . ' font-size:11pt;">' . esc($info[0]['id_forceaccount']) . '</td>';
+$html .= '<td colspan="2" style="' . $mid . '">&nbsp;</td>';
+$html .= '</tr>';
+$html .= '</table>';
+
+// ════════════════════════════════════════════════════════════════════════════
+// CLIENT INFO – 2 rows, 4 columns each
+// Columns: 32% | 13% | 28% | 27%
+// ════════════════════════════════════════════════════════════════════════════
+$html .= '<table style="border-collapse:collapse; width:100%;">';
+$html .= '<tr style="' . $dRow . '">';
+$html .= '<td style="width:32%; ' . $mid . '"><b>Company:</b> '       . esc($info[0]['company_name']) . '</td>';
+$html .= '<td style="width:13%; ' . $mid . '"><b>Po #:</b> '          . esc($info[0]['purchase_order'] ?? '') . '</td>';
+$html .= '<td style="width:28%; ' . $mid . '"><b>Venture Code:</b> '  . esc($info[0]['job_description']) . '</td>';
+$html .= '<td style="width:27%; ' . $mid . '"><b>Email:</b> '         . esc($info[0]['foreman_email_wo']) . '</td>';
+$html .= '</tr>';
+$html .= '<tr style="' . $dRow . '">';
+$html .= '<td colspan="2" style="' . $mid . '"><b>Job-site location:</b> </td>';
+$html .= '<td style="' . $mid . '"><b>Foreman\'s Name:</b> '          . esc($info[0]['foreman_name_wo']) . '</td>';
+$html .= '<td style="' . $mid . '"><b>Foreman\'s Contact:</b> '       . esc($movil) . '</td>';
+$html .= '</tr>';
+$html .= '</table>';
+
+// ── Description of work performed ────────────────────────────────────────────
+$html .= '<table style="border-collapse:collapse; width:100%;">';
+$html .= '<tr>';
+$html .= '<td style="' . $mid . ' height:20px;"><b>Description of Work Performed:</b> '
+       . esc($info[0]['observation']) . '</td>';
+$html .= '</tr>';
+$html .= '</table>';
+
+// ════════════════════════════════════════════════════════════════════════════
+// WORK DATA – Equipment (4 cols) | ManPower (4 cols) | Sub's (2 cols)
+// Col widths: 12 + 5 + 6 + 8 | 11 + 5 + 6 + 8 | 26 + 13 = 100%
+// ════════════════════════════════════════════════════════════════════════════
+$html .= '<table style="border-collapse:collapse; width:100%;">';
+
+// Section headers
+$html .= '<tr>';
+$html .= '<td colspan="4" style="' . $yh . '">Type of Equipment</td>';
+$html .= '<td colspan="4" style="' . $yh . '">ManPower</td>';
+$html .= '<td colspan="2" style="' . $yh . '">Sub\'s</td>';
+$html .= '</tr>';
+
+// Column sub-headers
+$html .= '<tr>';
+$html .= '<td style="width:12%; ' . $boldC . '">Unit</td>';
+$html .= '<td style="width:5%;  ' . $boldC . '">Hours</td>';
+$html .= '<td style="width:6%;  ' . $boldC . '">Rate</td>';
+$html .= '<td style="width:8%;  ' . $boldC . '">Sub-total</td>';
+$html .= '<td style="width:11%; ' . $boldC . '">MP-Name</td>';
+$html .= '<td style="width:5%;  ' . $boldC . '">Hours</td>';
+$html .= '<td style="width:6%;  ' . $boldC . '">Rate</td>';
+$html .= '<td style="width:8%;  ' . $boldC . '">Sub-total</td>';
+$html .= '<td style="width:26%; ' . $boldC . '">Task Performed</td>';
+$html .= '<td style="width:13%; ' . $boldC . '">Sub-total</td>';
+$html .= '</tr>';
+
+// Data rows
+for ($i = 0; $i < $maxBodyRows; $i++) {
+    $eq  = $eqArr[$i]  ?? null;
+    $mp  = $mpArr[$i]  ?? null;
+    $sub = $subArr[$i] ?? null;
+
+    $eqUnit = '';
+    if ($eq) {
+        $eqUnit = ($eq['fk_id_type_2'] == 8)
+            ? trim($eq['miscellaneous'] . ' ' . $eq['other'])
+            : '#' . $eq['unit_number'] . ' ' . $eq['make'];
+    }
+
+    $html .= '<tr style="' . $dRow . '">';
+    $html .= '<td style="' . $mid  . '">' . ($eq  ? esc($eqUnit)                          : '&nbsp;') . '</td>';
+    $html .= '<td style="' . $ctr  . '">' . ($eq  ? esc($eq['hours'])                     : '&nbsp;') . '</td>';
+    $html .= '<td style="' . $rgt  . '">' . ($eq  ? '$ ' . number_format($eq['rate'],  2) : '&nbsp;') . '</td>';
+    $html .= '<td style="' . $rgt  . '">' . ($eq  ? '$ ' . number_format($eq['value'], 2) : '&nbsp;') . '</td>';
+    $html .= '<td style="' . $mid  . '">' . ($mp  ? esc($mp['name'])                      : '&nbsp;') . '</td>';
+    $html .= '<td style="' . $ctr  . '">' . ($mp  ? esc($mp['hours'])                     : '&nbsp;') . '</td>';
+    $html .= '<td style="' . $rgt  . '">' . ($mp  ? '$ ' . number_format($mp['rate'],  2) : '&nbsp;') . '</td>';
+    $html .= '<td style="' . $rgt  . '">' . ($mp  ? '$ ' . number_format($mp['value'], 2) : '&nbsp;') . '</td>';
+    $html .= '<td style="' . $mid  . '">' . ($sub ? esc($sub['description'])               : '&nbsp;') . '</td>';
+    $html .= '<td style="' . $rgt  . '">' . ($sub ? '$ ' . number_format($sub['value'], 2) : '&nbsp;') . '</td>';
+    $html .= '</tr>';
 }
 
+// Section sub-totals row
+$html .= '<tr>';
+$html .= '<td colspan="3" style="' . $totE . '">&nbsp;</td>';
+$html .= '<td style="' . $tot . '">$ ' . number_format($totalEquipment, 2) . '</td>';
+$html .= '<td colspan="3" style="' . $totE . '">&nbsp;</td>';
+$html .= '<td style="' . $tot . '">$ ' . number_format($totalPersonal, 2) . '</td>';
+$html .= '<td style="' . $totE . '">&nbsp;</td>';
+$html .= '<td style="' . $tot . '">$ ' . number_format($totalOcasional, 2) . '</td>';
+$html .= '</tr>';
+$html .= '</table>';
 
-// INICIO EQUIPMENT
-$subTotalEquipment = 0;
-if($forceaccountEquipment)
-{ 
-	$html.= '<table border="0" cellspacing="0" cellpadding="4">';
+// ════════════════════════════════════════════════════════════════════════════
+// MATERIALS – 5 cols: 20% + 35% + 12% + 13% + 20% = 100%
+// ════════════════════════════════════════════════════════════════════════════
+$html .= '<table style="border-collapse:collapse; width:100%;">';
+$html .= '<tr>';
+$html .= '<td colspan="5" style="' . $yh . '">Materials</td>';
+$html .= '</tr>';
+$html .= '<tr>';
+$html .= '<td style="width:20%; ' . $boldC . '">Type of Material</td>';
+$html .= '<td style="width:35%; ' . $boldC . '">Description</td>';
+$html .= '<td style="width:12%; ' . $boldC . '">Unit</td>';
+$html .= '<td style="width:13%; ' . $boldC . '">Quantity</td>';
+$html .= '<td style="width:20%; ' . $boldC . '">Sub-Total</td>';
+$html .= '</tr>';
 
-	$html.= '<tr>
-				<th align="center" colspan="4" width="70%"  bgcolor="#ff6b33" style="color:white;"><strong>Equipment </strong></th>
-				<th align="center" rowspan="2" width="10%" bgcolor="#ff6b33" style="color:white;"><strong>HOURS </strong></th>
-				<th align="center" rowspan="2" width="10%" bgcolor="#ff6b33" style="color:white;"><strong>RENTAL RATE</strong></th>
-				<th align="center" rowspan="2" width="10%" bgcolor="#ff6b33" style="color:white;"><strong>AMOUNT </strong></th>
-			</tr>
-			<tr>
-				<th align="center" width="15%" bgcolor="#ff6b33" style="color:white;"><strong>Unit # </strong></th>
-				<th align="center" width="15%" bgcolor="#ff6b33" style="color:white;"><strong>Make </strong></th>
-				<th align="center" width="15%" bgcolor="#ff6b33" style="color:white;"><strong>Model </strong></th>
-				<th align="center" width="25%" bgcolor="#ff6b33" style="color:white;"><strong>Attachments </strong></th>
-			</tr>';
-
-	foreach ($forceaccountEquipment as $data):
-		$subTotalEquipment += $data['value'];
-
-		//si es tipo miscellaneous -> 8, entonces la description es diferente
-		if($data['fk_id_type_2'] == 8){
-			$equipment = $data['miscellaneous'] . " - " . $data['other'];
-		}else{
-			$equipment = $data['unit_number'];
-		}
-
-		$html.=	'<tr>
-					<th>' . $equipment . '</th>
-					<th align="center">' . $data['make'] . '</th>
-					<th align="center">' . $data['model'] . '</th>
-					<th align="center">';
-					if($data['fk_id_attachment'] != "" && $data['fk_id_attachment'] != 0){
-						$html.=	'<strong>ATTACHMENT: </strong>' . $data["attachment_number"] . " - " . $data["attachment_description"] . ' ';
-					}	
-		$html.='</th>
-					<th align="center">' . $data['hours'] . '</th>
-					<th align="right">$ ' . number_format($data['rate'], 2) . '</th>
-					<th align="right">$ ' . number_format($data['value'], 2) . '</th>';
-		$html.= '</tr>';
-	endforeach;
-	$html.= '<tr>
-				<th colspan="6" align="right">Subtotal ' . $item  . '</th>
-				<th align="right">$ ' . number_format($subTotalEquipment, 2) . '</th>
-			</tr>';
-
-	$html.= '</table><br><br>';	
-	$item++;
+for ($i = 0; $i < $maxMatRows; $i++) {
+    $mat = $matArr[$i] ?? null;
+    $html .= '<tr style="' . $dRow . '">';
+    $html .= '<td style="' . $mid . '">' . ($mat ? esc($mat['material'])                   : '&nbsp;') . '</td>';
+    $html .= '<td style="' . $mid . '">' . ($mat ? esc($mat['description'])                : '&nbsp;') . '</td>';
+    $html .= '<td style="' . $ctr . '">' . ($mat ? esc($mat['unit'])                       : '&nbsp;') . '</td>';
+    $html .= '<td style="' . $ctr . '">' . ($mat ? esc($mat['quantity'])                   : '&nbsp;') . '</td>';
+    $html .= '<td style="' . $rgt . '">' . ($mat ? '$ ' . number_format($mat['value'], 2) : '&nbsp;') . '</td>';
+    $html .= '</tr>';
 }
+$html .= '<tr>';
+$html .= '<td colspan="4" style="' . $totE . '">&nbsp;</td>';
+$html .= '<td style="' . $tot . '">$ ' . number_format($totalMaterials, 2) . '</td>';
+$html .= '</tr>';
+$html .= '</table>';
 
-// INICIO MATERIAL
-$subTotalMaterial = 0;
-if($forceaccountMaterials)
-{
-	$html.= '<table border="0" cellspacing="0" cellpadding="4">';
+// ════════════════════════════════════════════════════════════════════════════
+// RECEIPTS – 3 cols: 28% + 52% + 20% = 100%
+// ════════════════════════════════════════════════════════════════════════════
+$html .= '<table style="border-collapse:collapse; width:100%;">';
+$html .= '<tr>';
+$html .= '<td colspan="3" style="' . $yh . '">Receipts</td>';
+$html .= '</tr>';
+$html .= '<tr>';
+$html .= '<td style="width:28%; ' . $boldC . '">Store</td>';
+$html .= '<td style="width:52%; ' . $boldC . '">Description</td>';
+$html .= '<td style="width:20%; ' . $boldC . '">Price</td>';
+$html .= '</tr>';
 
-	$html.= '<tr>
-				<th align="center" colspan="2" width="60%"  bgcolor="#ff6b33" style="color:white;"><strong>Materials/Supplies </strong></th>
-				<th align="center" rowspan="2" width="10%" bgcolor="#ff6b33" style="color:white;"><strong>QUANTITY </strong></th>
-				<th align="center" rowspan="2" width="10%" bgcolor="#ff6b33" style="color:white;"><strong>UNIT PRICE</strong></th>
-				<th align="center" rowspan="2" width="10%" bgcolor="#ff6b33" style="color:white;"><strong>MARKUP </strong></th>
-				<th align="center" rowspan="2" width="10%" bgcolor="#ff6b33" style="color:white;"><strong>AMOUNT </strong></th>
-			</tr>
-			<tr>
-				<th align="center" width="25%" bgcolor="#ff6b33" style="color:white;"><strong>Materials and Supplies</strong></th>
-				<th align="center" width="35%" bgcolor="#ff6b33" style="color:white;"><strong>Description </strong></th>
-			</tr>';
-	foreach ($forceaccountMaterials as $data):
-		$subTotalMaterial += $data['value'];
-
-		$description = $data['description'];
-		if($data['markup'] > 0){
-			$description = $description . ' - Plus M.U.';
-		}
-
-		$html.=	'<tr>
-					<th>' . $data['material'] . '</th>
-					<th>' . $description . '</th>
-					<th align="center">' . $data['quantity'] . '</th>
-					<th align="right">$ ' . number_format($data['rate'], 2) . '</th>
-					<th align="right">' . $data['markup'] . '</th>
-					<th align="right">$ ' . number_format($data['value'], 2) . '</th>';
-		$html.= '</tr>';
-	endforeach;
-	$html.= '<tr>
-				<th colspan="5" align="right">Subtotal ' . $item  . '</th>
-				<th align="right">$ ' . number_format($subTotalMaterial, 2) . '</th>
-			</tr>';
-
-	$html.= '</table><br><br>';	
-	$item++;
+for ($i = 0; $i < $maxRecRows; $i++) {
+    $rec = $recArr[$i] ?? null;
+    $html .= '<tr style="' . $dRow . '">';
+    $html .= '<td style="' . $mid . '">' . ($rec ? esc($rec['place'])                      : '&nbsp;') . '</td>';
+    $html .= '<td style="' . $mid . '">' . ($rec ? esc($rec['description'])                : '&nbsp;') . '</td>';
+    $html .= '<td style="' . $rgt . '">' . ($rec ? '$ ' . number_format($rec['value'], 2) : '&nbsp;') . '</td>';
+    $html .= '</tr>';
 }
+$html .= '<tr>';
+$html .= '<td colspan="2" style="' . $totE . '">&nbsp;</td>';
+$html .= '<td style="' . $tot . '">$ ' . number_format($totalReceipts, 2) . '</td>';
+$html .= '</tr>';
+$html .= '</table>';
 
-// INICIO SUBCONTRATISTAS OCASIONALES
-$subTotalOcasional = 0;
-if($forceaccountOcasional)
-{
-	$html.= '<table border="0" cellspacing="0" cellpadding="4">';
+// ════════════════════════════════════════════════════════════════════════════
+// SIGNATURE  +  SUB-TOTALS SUMMARY
+// Left 42%: signature area     Right 58%: 5-line sub-total breakdown
+// ════════════════════════════════════════════════════════════════════════════
+$html .= '<table style="border-collapse:collapse; width:100%;">';
+$html .= '<tr>';
 
-	$html.= '<tr>
-				<th align="center" colspan="2" width="50%"  bgcolor="#ff6b33" style="color:white;"><strong>Occasional Subcontractor </strong></th>
-				<th align="center" rowspan="2" width="10%" bgcolor="#ff6b33" style="color:white;"><strong>QUANTITY </strong></th>
-				<th align="center" rowspan="2" width="10%" bgcolor="#ff6b33" style="color:white;"><strong>HOURS </strong></th>
-				<th align="center" rowspan="2" width="10%" bgcolor="#ff6b33" style="color:white;"><strong>UNIT PRICE</strong></th>
-				<th align="center" rowspan="2" width="10%" bgcolor="#ff6b33" style="color:white;"><strong>MARKUP </strong></th>
-				<th align="center" rowspan="2" width="10%" bgcolor="#ff6b33" style="color:white;"><strong>AMOUNT </strong></th>
-			</tr>
-			<tr>
-				<th align="center" width="20%" bgcolor="#ff6b33" style="color:white;"><strong>Subcontractor/Rentals</strong></th>
-				<th align="center" width="30%" bgcolor="#ff6b33" style="color:white;"><strong>Description </strong></th>
-			</tr>';
-	foreach ($forceaccountOcasional as $data):
-		$subTotalOcasional += $data['value'];
+// Signature block
+$html .= '<td style="width:42%; ' . $yh . ' vertical-align:top; height:55px;">'
+       . 'On-site Client\'s Rep signature</td>';
 
-		$description = $data['description'];
-		if($data['markup'] > 0){
-			$description = $description . ' - Plus M.U.';
-		}
-
-		$html.=		'<tr>
-					<th>' . $data['company_name'] . '</th>
-					<th>' . $description . '</th>
-					<th align="center">' . $data['quantity'] . '</th>
-					<th align="center">' . $data['hours'] . '</th>
-					<th align="right">$ ' . number_format($data['rate'], 2) . '</th>
-					<th align="right">' . $data['markup'] . '</th>
-					<th align="right">$ ' . number_format($data['value'], 2) . '</th>';
-		$html.= '</tr>';
-	endforeach;
-	$html.= '<tr>
-				<th colspan="6" align="right">Subtotal ' . $item  . '</th>
-				<th align="right">$ ' . number_format($subTotalOcasional, 2) . '</th>
-			</tr>';
-
-	$html.= '</table><br><br>';	
-	$item++;
+// Sub-totals block (nested table)
+$html .= '<td style="width:58%; border:0px solid ' . $border . '; padding:0; vertical-align:top;">';
+$html .= '<table border="0" style="width:100%;">';
+$html .= '<tr><td colspan="2" style="' . $yh . '">Sub-Totals</td></tr>';
+foreach ([
+    'Equipment' => $totalEquipment,
+    'ManPower'  => $totalPersonal,
+    "Sub's"     => $totalOcasional,
+    'Materials' => $totalMaterials,
+    'Receipts'  => $totalReceipts,
+] as $label => $amount) {
+    $html .= '<tr style="' . $dRow . '">';
+    $html .= '<td style="width:65%; ' . $mid  . '">' . $label . '</td>';
+    $html .= '<td style="width:35%; ' . $rgt  . '">$ ' . number_format($amount, 2) . '</td>';
+    $html .= '</tr>';
 }
+$html .= '</table>';
+$html .= '</td>';
+$html .= '</tr>';
+$html .= '</table>';
 
-// INICIO RECEIPT
-$subTotalReceipt = 0;
-if($forceaccountReceipt)
-{
-	$html.= '<table border="0" cellspacing="0" cellpadding="4">';
+// ════════════════════════════════════════════════════════════════════════════
+// TICKET TOTAL  – aligns left edge with signature block above
+// ════════════════════════════════════════════════════════════════════════════
+$html .= '<table style="border-collapse:collapse; width:100%;">';
+$html .= '<tr style="background-color:' . $yellow . ';">';
+$html .= '<td style="width:42%; ' . $boldR . ' background-color:' . $yellow . ';">Ticket Total:</td>';
+$html .= '<td style="width:18%; ' . $boldR . ' background-color:' . $yellow . '; font-size:9pt;">$ ' . number_format($ticketTotal, 2) . '</td>';
+$html .= '<td style="width:40%; ' . $mid   . ' background-color:' . $yellow . ';">&nbsp;</td>';
+$html .= '</tr>';
+$html .= '</table>';
 
-	$html.= '<tr>
-				<th align="center" colspan="2" width="70%"  bgcolor="#ff6b33" style="color:white;"><strong>Receipt</strong></th>
-				<th align="center" rowspan="2" width="10%" bgcolor="#ff6b33" style="color:white;"><strong>Price with GST </strong></th>
-				<th align="center" rowspan="2" width="10%" bgcolor="#ff6b33" style="color:white;"><strong>MARKUP</strong></th>
-				<th align="center" rowspan="2" width="10%" bgcolor="#ff6b33" style="color:white;"><strong>AMOUNT </strong></th>
-			</tr>
-			<tr>
-				<th align="center" width="30%" bgcolor="#ff6b33" style="color:white;"><strong>Place</strong></th>
-				<th align="center" width="40%" bgcolor="#ff6b33" style="color:white;"><strong>Description </strong></th>
-			</tr>';
-	foreach ($forceaccountReceipt as $data):
-		$subTotalReceipt += $data['value'];
+// ════════════════════════════════════════════════════════════════════════════
+// REMARKS
+// ════════════════════════════════════════════════════════════════════════════
+$html .= '<table style="border-collapse:collapse; width:100%;">';
+$html .= '<tr>';
+$html .= '<td style="width:12%; ' . $yh   . '">Remarks</td>';
+$html .= '<td style="width:88%; ' . $mid  . ' height:20px;">&nbsp;</td>';
+$html .= '</tr>';
+$html .= '</table>';
 
-		$description = $data['description'];
-		if($data['markup'] > 0){
-			$description = $description . ' - Plus M.U.';
-		}
-
-		$html.=		'<tr>
-					<th>' . $data['place'] . '</th>
-					<th>' . $description . '</th>
-					<th align="right">$ ' . number_format($data['price'], 2) . '</th>
-					<th align="right">' . $data['markup'] . '</th>
-					<th align="right">$ ' . number_format($data['value'], 2) . '</th>';
-		$html.= '</tr>';
-	endforeach;
-	$html.= '<tr>
-				<th colspan="4" align="right">Subtotal ' . $item  . '</th>
-				<th align="right">$ ' . number_format($subTotalReceipt, 2) . '</th>
-			</tr>';
-
-	$html.= '</table><br><br>';	
-	$item++;
+// ════════════════════════════════════════════════════════════════════════════
+// LEGAL TEXT
+// ════════════════════════════════════════════════════════════════════════════
+$legal = [
+    'By signing this Work Ticket, the Client and the Client\'s on-site representative confirm that the work performed has been reviewed and is satisfactory.',
+    'This Work Ticket serves as proof of work completed and may act as an invoice on its own or as supporting documentation for a separate invoice.',
+    'All information recorded on this Work Ticket has been reviewed by Lev West and the Client\'s representative.',
+];
+$html .= '<table style="border-collapse:collapse; width:100%;">';
+foreach ($legal as $line) {
+    $html .= '<tr><td style="' . $base . ' color:#0000CC; font-size:6.5pt;">' . $line . '</td></tr>';
 }
+$html .= '</table>';
 
+// Close outer wrapper
+$html .= '</td></tr></table>';
 
-// Calculamos el total
-$subtotal = $subTotalPersonal + $subTotalEquipment + $subTotalMaterial + $subTotalOcasional + $subTotalReceipt;
-// Normalizamos el profit
-$profit = $info[0]['profit'] ?? 0;   // Si no existe, por defecto 0
-$profit = is_numeric($profit) ? floatval($profit) : 0; // Aseguramos número
-$profit = max(0, min(100, $profit)); // Forzamos rango entre 0 y 100
-$profitValue = $subtotal * $profit / 100;
-// Calculamos el total con profit
-$total = $subtotal + $profitValue;
-
-// Armamos la tabla de firma (izquierda)
-$signature = '';
-if (!empty($info[0]['signature_wo'])) {
-	$signature = '<img src="' . $info[0]['signature_wo'] . '" border="0" width="70" height="70" />';
-} else {
-	$signature = '<br>
-	<div style="
-		color: red;
-		font-weight: bold;
-		background-color: #ffe6e6;
-		border: 2px dashed red;
-		padding: 10px;
-		border-radius: 8px;
-		text-align: center;
-	">
-		SIGNATURE NOT PROVIDED
-	</div>';
-
-}
-
-$html .= '<table border="0" cellspacing="0" cellpadding="4" width="100%">
-	<tr>
-		<!-- Firma a la izquierda -->
-		<td width="40%" valign="top">
-			<table border="1" cellspacing="0" cellpadding="5" width="100%">
-				<tr>
-					<th align="center" style="background-color:#f0f0f0;"><strong>Client Representative</strong></th>
-				</tr>
-				<tr>
-					<td align="center">' . $signature . '</td>
-				</tr>
-				<tr>
-					<th align="center" style="background-color:#ff6b33; color:white;">' . $info[0]['foreman_name_wo'] . '</th>
-				</tr>
-			</table>
-		</td>
-
-		<!-- Resumen a la derecha -->
-		<td width="60%" valign="top">
-			<table border="0" cellspacing="0" cellpadding="4" width="100%">
-				<tr>
-					<th align="right" colspan="2" width="60%" bgcolor="#ff6b33" style="color:white;"><strong>SUMMARY</strong></th>
-					<th align="center" width="40%" bgcolor="#ff6b33" style="color:white;"><strong>AMOUNT</strong></th>
-				</tr>';
-
-$items = 0;
-if ($forceaccountPersonal) {
-	$items++;
-	$html .= '<tr>
-		<th width="30%">Labour</th>
-		<th width="30%" align="right">Subtotal ' . $items . '</th>
-		<th width="40%" align="right">$ ' . number_format($subTotalPersonal, 2) . '</th>
-	</tr>';
-}
-if ($forceaccountEquipment) {
-	$items++;
-	$html .= '<tr>
-		<th>Equipment</th>
-		<th align="right">Subtotal ' . $items . '</th>
-		<th align="right">$ ' . number_format($subTotalEquipment, 2) . '</th>
-	</tr>';
-}
-if ($forceaccountMaterials) {
-	$items++;
-	$html .= '<tr>
-		<th>Materials/Supplies</th>
-		<th align="right">Subtotal ' . $items . '</th>
-		<th align="right">$ ' . number_format($subTotalMaterial, 2) . '</th>
-	</tr>';
-}
-if ($forceaccountOcasional) {
-	$items++;
-	$html .= '<tr>
-		<th>Subcontractor</th>
-		<th align="right">Subtotal ' . $items . '</th>
-		<th align="right">$ ' . number_format($subTotalOcasional, 2) . '</th>
-	</tr>';
-}
-if ($forceaccountReceipt) {
-	$items++;
-	$html .= '<tr>
-		<th>Receipt</th>
-		<th align="right">Subtotal ' . $items . '</th>
-		<th align="right">$ ' . number_format($subTotalReceipt, 2) . '</th>
-	</tr>';
-}
-
-$html .= '<tr>
-	<th colspan="2" align="right" bgcolor="#ff6b33" style="color:white;"><strong>SUBTOTAL AMOUNT</strong></th>
-	<th align="right" bgcolor="#ff6b33" style="color:white;"><strong>$ ' . number_format($subtotal, 2) . '</strong></th>
-</tr>
-
-		<tr>
-	<th colspan="2" align="right" bgcolor="#ff6b33" style="color:white;"><strong>PROFIT ( ' . $profit .  '% )</strong></th>
-	<th align="right" bgcolor="#ff6b33" style="color:white;"><strong>$ ' . number_format($profitValue, 2) . '</strong></th>
-</tr>
-
-		<tr>
-	<th colspan="2" align="right" bgcolor="#ff6b33" style="color:white;"><strong>TOTAL AMOUNT</strong></th>
-	<th align="right" bgcolor="#ff6b33" style="color:white;"><strong>$ ' . number_format($total, 2) . '</strong></th>
-</tr>
-
-		</table>
-	</td>
-</tr>
-</table>';
-	
 echo $html;
-
-?>

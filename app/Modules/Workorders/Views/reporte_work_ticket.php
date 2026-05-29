@@ -34,7 +34,7 @@ $lgray  = '#F0F0F0';
 $border = '#333333';
 
 // ── Cell style helpers ───────────────────────────────────────────────────────
-$base  = "border:1px solid $border; padding:3px 5px; font-size:7pt;";
+$base  = "border:0px solid $border; padding:3px 5px; font-size:7pt;";
 $mid   = "$base vertical-align:middle;";
 $ctr   = "$base text-align:center; vertical-align:middle;";
 $rgt   = "$base text-align:right;  vertical-align:middle;";
@@ -44,11 +44,11 @@ $boldR = "$base font-weight:bold; text-align:right;  vertical-align:middle;";
 $yh    = "$base background-color:$yellow; font-weight:bold; text-align:center; vertical-align:middle;";
 $tot   = "$base background-color:$lgray;  font-weight:bold; text-align:right;  vertical-align:middle;";
 $totE  = "$base background-color:$lgray;  vertical-align:middle;";
-$dRow  = 'height:16px;';
+$dRow = 'line-height:16px; height:16px;';
 
 $html = '<style>
-table  { border-collapse:collapse; width:100%; }
-td, th { font-family:helvetica; font-size:7pt; }
+table { border-collapse:collapse; width:100%; }
+td, th { font-family:helvetica; font-size:7pt; border-spacing:0; }
 </style>';
 
 // ── Header with logo ─────────────────────────────────────────────────────────
@@ -74,13 +74,20 @@ $html .= '<td style="width:3%; border:1px solid ' . $border . '; text-align:cent
        . ' font-size:9pt; vertical-align:middle; letter-spacing:1px;">'
        . 'W<br>o<br>r<br>k<br>&nbsp;<br>T<br>i<br>c<br>k<br>e<br>t</td>';
 
-$html .= '<td style="width:97%; border:0; padding:0; vertical-align:top;">';
+$html .= '<td style="
+    width:97%;
+    padding:0;
+    vertical-align:top;
+    border-left:1px solid '.$border.';
+    border-right:1px solid '.$border.';
+    border-bottom:1px solid '.$border.';
+">';
 
 // ════════════════════════════════════════════════════════════════════════════
 // TITLE ROW  –  Ticket# | "Lev West Work Ticket" | Date
 // ════════════════════════════════════════════════════════════════════════════
 // Columns: 7% | 73% | 9% | 11%
-$html .= '<table border="0">';
+$html .= '<table style="border-collapse:collapse; width:100%;">';
 $html .= '<tr>';
 $html .= '<td style="width:7%;  ' . $boldC . ' font-size:7pt;">Ticket#</td>';
 $html .= '<td style="width:73%; ' . $yh    . ' font-size:12pt;" rowspan="2">Lev West Work Ticket</td>';
@@ -97,7 +104,7 @@ $html .= '</table>';
 // CLIENT INFO – 2 rows, 4 columns each
 // Columns: 32% | 13% | 28% | 27%
 // ════════════════════════════════════════════════════════════════════════════
-$html .= '<table border="0">';
+$html .= '<table style="border-collapse:collapse; width:100%;">';
 $html .= '<tr style="' . $dRow . '">';
 $html .= '<td style="width:32%; ' . $mid . '"><b>Company:</b> '       . esc($info[0]['company_name']) . '</td>';
 $html .= '<td style="width:13%; ' . $mid . '"><b>Po #:</b> '          . esc($info[0]['purchase_order'] ?? '') . '</td>';
@@ -112,7 +119,7 @@ $html .= '</tr>';
 $html .= '</table>';
 
 // ── Description of work performed ────────────────────────────────────────────
-$html .= '<table border="0">';
+$html .= '<table style="border-collapse:collapse; width:100%;">';
 $html .= '<tr>';
 $html .= '<td style="' . $mid . ' height:20px;"><b>Description of Work Performed:</b> '
        . esc($info[0]['observation']) . '</td>';
@@ -123,7 +130,7 @@ $html .= '</table>';
 // WORK DATA – Equipment (4 cols) | ManPower (4 cols) | Sub's (2 cols)
 // Col widths: 12 + 5 + 6 + 8 | 11 + 5 + 6 + 8 | 26 + 13 = 100%
 // ════════════════════════════════════════════════════════════════════════════
-$html .= '<table border="0">';
+$html .= '<table style="border-collapse:collapse; width:100%;">';
 
 // Section headers
 $html .= '<tr>';
@@ -187,7 +194,7 @@ $html .= '</table>';
 // ════════════════════════════════════════════════════════════════════════════
 // MATERIALS – 5 cols: 20% + 35% + 12% + 13% + 20% = 100%
 // ════════════════════════════════════════════════════════════════════════════
-$html .= '<table border="0">';
+$html .= '<table style="border-collapse:collapse; width:100%;">';
 $html .= '<tr>';
 $html .= '<td colspan="5" style="' . $yh . '">Materials</td>';
 $html .= '</tr>';
@@ -218,7 +225,7 @@ $html .= '</table>';
 // ════════════════════════════════════════════════════════════════════════════
 // RECEIPTS – 3 cols: 28% + 52% + 20% = 100%
 // ════════════════════════════════════════════════════════════════════════════
-$html .= '<table border="0">';
+$html .= '<table style="border-collapse:collapse; width:100%;">';
 $html .= '<tr>';
 $html .= '<td colspan="3" style="' . $yh . '">Receipts</td>';
 $html .= '</tr>';
@@ -246,7 +253,7 @@ $html .= '</table>';
 // SIGNATURE  +  SUB-TOTALS SUMMARY
 // Left 42%: signature area     Right 58%: 5-line sub-total breakdown
 // ════════════════════════════════════════════════════════════════════════════
-$html .= '<table border="0">';
+$html .= '<table style="border-collapse:collapse; width:100%;">';
 $html .= '<tr>';
 
 // Signature block
@@ -254,7 +261,7 @@ $html .= '<td style="width:42%; ' . $yh . ' vertical-align:top; height:55px;">'
        . 'On-site Client\'s Rep signature</td>';
 
 // Sub-totals block (nested table)
-$html .= '<td style="width:58%; border:1px solid ' . $border . '; padding:0; vertical-align:top;">';
+$html .= '<td style="width:58%; border:0px solid ' . $border . '; padding:0; vertical-align:top;">';
 $html .= '<table border="0" style="width:100%;">';
 $html .= '<tr><td colspan="2" style="' . $yh . '">Sub-Totals</td></tr>';
 foreach ([
@@ -277,7 +284,7 @@ $html .= '</table>';
 // ════════════════════════════════════════════════════════════════════════════
 // TICKET TOTAL  – aligns left edge with signature block above
 // ════════════════════════════════════════════════════════════════════════════
-$html .= '<table border="0">';
+$html .= '<table style="border-collapse:collapse; width:100%;">';
 $html .= '<tr style="background-color:' . $yellow . ';">';
 $html .= '<td style="width:42%; ' . $boldR . ' background-color:' . $yellow . ';">Ticket Total:</td>';
 $html .= '<td style="width:18%; ' . $boldR . ' background-color:' . $yellow . '; font-size:9pt;">$ ' . number_format($ticketTotal, 2) . '</td>';
@@ -288,7 +295,7 @@ $html .= '</table>';
 // ════════════════════════════════════════════════════════════════════════════
 // REMARKS
 // ════════════════════════════════════════════════════════════════════════════
-$html .= '<table border="0">';
+$html .= '<table style="border-collapse:collapse; width:100%;">';
 $html .= '<tr>';
 $html .= '<td style="width:12%; ' . $yh   . '">Remarks</td>';
 $html .= '<td style="width:88%; ' . $mid  . ' height:20px;">&nbsp;</td>';
@@ -303,7 +310,7 @@ $legal = [
     'This Work Ticket serves as proof of work completed and may act as an invoice on its own or as supporting documentation for a separate invoice.',
     'All information recorded on this Work Ticket has been reviewed by Lev West and the Client\'s representative.',
 ];
-$html .= '<table border="0">';
+$html .= '<table style="border-collapse:collapse; width:100%;">';
 foreach ($legal as $line) {
     $html .= '<tr><td style="' . $base . ' color:#0000CC; font-size:6.5pt;">' . $line . '</td></tr>';
 }

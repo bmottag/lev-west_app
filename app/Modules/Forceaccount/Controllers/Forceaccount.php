@@ -818,17 +818,32 @@ class Forceaccount extends BaseController
      */
     public function generaForceAccountPDF($idForceAccount)
     {
-        $arrParam = ['idForceAccount' => $idForceAccount, 'view_pdf' => true];
+        $arrParam = ['idForceAccount' => $idForceAccount];
 
-        $data['info']                  = $this->forceaccountModel->get_forceaccount_by_idJob($arrParam);
+        $data['info'] = $this->forceaccountModel->get_forceaccount_by_idJob($arrParam);
+        if (empty($data['info'])) {
+            throw new \CodeIgniter\Exceptions\PageNotFoundException('No Force Account found for ID: ' . $idForceAccount);
+        }
+
+        $data['logo'] = FCPATH . 'images/logo_black.png';
+
+        $arrParam['view_pdf']            = true;
         $data['forceaccountPersonal']  = $this->forceaccountModel->get_forceaccount_personal($arrParam);
         $data['forceaccountMaterials'] = $this->forceaccountModel->get_forceaccount_materials($arrParam);
         $data['forceaccountReceipt']   = $this->forceaccountModel->get_forceaccount_receipt($arrParam);
         $data['forceaccountEquipment'] = $this->forceaccountModel->get_forceaccount_equipment($arrParam);
         $data['forceaccountOcasional'] = $this->forceaccountModel->get_forceaccount_ocasional($arrParam);
 
-        $builder = new PdfBuilder();
-        $pdf     = $builder->create('Force Account');
+        $pdf = new \TCPDF('L', PDF_UNIT, 'LETTER', true, 'UTF-8', false);
+        $pdf->SetCreator('Lev West');
+        $pdf->SetAuthor('Lev West');
+        $pdf->SetTitle('Force Account #' . $idForceAccount);
+        $pdf->setPrintHeader(false);
+        $pdf->setPrintFooter(false);
+        $pdf->SetMargins(8, 8, 8);
+        $pdf->SetAutoPageBreak(true, 10);
+        $pdf->SetFont('dejavusans', '', 7);
+        $pdf->AddPage();
 
         $html = view('App\Modules\Forceaccount\Views\reporte_force_account', $data);
         $pdf->writeHTML($html, true, false, true, false, '');
@@ -838,9 +853,11 @@ class Forceaccount extends BaseController
             ob_end_clean();
         }
 
+        $name = $data['info'][0]['job_description'] . '_force_account_' . $idForceAccount . '.pdf';
+
         return $this->response
             ->setHeader('Content-Type', 'application/pdf')
-            ->setBody($pdf->Output('force_account_' . $idForceAccount . '.pdf', 'I'));
+            ->setBody($pdf->Output($name, 'I'));
     }
 
     /**

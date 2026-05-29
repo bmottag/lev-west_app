@@ -922,9 +922,11 @@ class Workorders extends BaseController
             ob_end_clean();
         }
 
+        $name = $data['info'][0]['job_description'] . '_work_ticket_' . $idWorkOrder . '.pdf';
+
         return $this->response
             ->setHeader('Content-Type', 'application/pdf')
-            ->setBody($pdf->Output('work_ticket_' . $idWorkOrder . '.pdf', 'I'));
+            ->setBody($pdf->Output($name, 'I'));
     }
 
     /**
