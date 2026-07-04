@@ -14,8 +14,7 @@ $routes->group('invoices', ['namespace' => 'App\Modules\Invoices\Controllers'], 
     $routes->post('save_all',                    'Invoices::save_all');
     $routes->get('delete_item/(:num)/(:num)',    'Invoices::delete_item/$1/$2');
     $routes->get('delete_payment/(:num)/(:num)', 'Invoices::delete_payment/$1/$2');
-    $routes->post('claim_list',                  'Invoices::claimList');
-    $routes->post('wo_list',                     'Invoices::woList');
+    $routes->post('claimList',                   'Invoices::claimList');
     $routes->post('cargar_modal_items',          'Invoices::cargarModalItems');
     $routes->get('genera_invoice_pdf/(:num)',    'Invoices::generaInvoicePDF/$1');
     $routes->post('upload_file/(:num)',          'Invoices::upload_file/$1');

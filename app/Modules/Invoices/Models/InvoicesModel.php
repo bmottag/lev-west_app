@@ -120,7 +120,8 @@ class InvoicesModel extends Model
     public function get_claim_by_job_code($jobCode)
     {
         $query = $this->db->query(
-            'SELECT * FROM claim WHERE date_issue_claim >= CURDATE() - INTERVAL 10 DAY AND fk_id_job = ?',
+            /*'SELECT * FROM claim WHERE date_issue_claim >= CURDATE() - INTERVAL 10 DAY AND fk_id_job = ?',*/ 
+            'SELECT * FROM claim WHERE fk_id_job = ?',
             [$jobCode]
         );
 
