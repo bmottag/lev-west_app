@@ -179,7 +179,7 @@
 					$userRol = session()->get("rol");
 					if (($userRol == ID_ROL_SUPER_ADMIN || $userRol == ID_ROL_ENGINEER || $userRol == ID_ROL_WORKORDER) && $information[0]['state'] != 4) {
 					?>
-						<li><a href="<?php echo base_url('forceaccount/forceaccount_expenses/' . $information[0]["id_forceaccount"]) ?>">Workorder Expenses</a>
+						<li><a href="<?php echo base_url('forceaccount/forceaccount_expenses/' . $information[0]["id_forceaccount"]) ?>">Force Account Expenses</a>
 						</li>
 					<?php } ?>
 					</ul>

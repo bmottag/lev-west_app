@@ -134,9 +134,9 @@ $html .= '<table style="border-collapse:collapse; width:100%;">';
 
 // Section headers
 $html .= '<tr>';
-$html .= '<td colspan="4" style="' . $yh . '">Type of Equipment</td>';
-$html .= '<td colspan="4" style="' . $yh . '">ManPower</td>';
-$html .= '<td colspan="2" style="' . $yh . '">Sub\'s</td>';
+$html .= '<td colspan="4" style="width:31%; ' . $yh . '">Type of Equipment</td>';
+$html .= '<td colspan="4" style="width:30%; ' . $yh . '">ManPower</td>';
+$html .= '<td colspan="2" style="width:39%; ' . $yh . '">Sub\'s</td>';
 $html .= '</tr>';
 
 // Column sub-headers

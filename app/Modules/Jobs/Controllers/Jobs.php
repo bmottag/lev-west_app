@@ -2339,6 +2339,8 @@ class Jobs extends BaseController
 
 		$chapterDetails  = [];
 		$expensesByDetail = [];
+		$forceAccountExpensesByDetail = [];
+		$faExpensesTotalByDetail = [];
 
 		if ($data['chapterList']) {
 			foreach ($data['chapterList'] as $chapter) {
@@ -2349,6 +2351,14 @@ class Jobs extends BaseController
 				if ($details) {
 					foreach ($details as $detail) {
 						$expensesByDetail[$detail['id_job_detail']] = $this->jobsModel->countExpenses(['idJobDetail' => $detail['id_job_detail']]);
+						$forceAccountExpensesByDetail[$detail['id_job_detail']] = $this->jobsModel->countForceAccountExpenses(['idJobDetail' => $detail['id_job_detail']]);
+					}
+				}
+
+				$faDetails = $this->jobsModel->get_job_detail_fa_expenses($arrParam);
+				if ($faDetails) {
+					foreach ($faDetails as $faDetail) {
+						$faExpensesTotalByDetail[$faDetail['id_job_detail']] = $faDetail['fa_expenses'] ?? 0;
 					}
 				}
 			}
@@ -2356,6 +2366,8 @@ class Jobs extends BaseController
 
 		$data['chapterDetails']   = $chapterDetails;
 		$data['expensesByDetail'] = $expensesByDetail;
+		$data['forceAccountExpensesByDetail'] = $forceAccountExpensesByDetail;
+		$data['faExpensesTotalByDetail'] = $faExpensesTotalByDetail;
 
 		return $this->renderTopOnly('App\Modules\Jobs\Views\job', $data);
 	}

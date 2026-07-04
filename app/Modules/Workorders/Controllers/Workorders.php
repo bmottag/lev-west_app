@@ -1387,6 +1387,7 @@ class Workorders extends BaseController
             'status'       => 'success',
             'company_id'   => $jobInfo[0]['fk_id_company'],
             'company_name' => $jobInfo[0]['company_name'],
+            'company_email' => $jobInfo[0]['email'],
             'foreman_name'  => '',
             'foreman_movil' => '',
             'foreman_email' => '',

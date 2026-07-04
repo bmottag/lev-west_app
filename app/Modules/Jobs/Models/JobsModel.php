@@ -1233,6 +1233,52 @@ Y.movil phone_emer_1, CONCAT(Y.first_name, " " , Y.last_name) emer_1, Z.movil ph
 	}
 
 	/**
+	 * Get force account expenses grouped by force account for a given job detail
+	 * @since 04/07/2026
+	 * @author BMOTTAG
+	 */
+	public function countForceAccountExpenses(array $arrParam)
+	{
+		$builder = $this->db->table('forceaccount_expense E');
+		$builder->select('FA.id_forceaccount, FA.date, FA.observation, ROUND(SUM(E.expense_value), 2) AS total_expenses');
+		$builder->join('forceaccount FA', 'FA.id_forceaccount = E.fk_id_forceaccount', 'INNER');
+		$builder->where('E.fk_id_job_detail', $arrParam['idJobDetail']);
+		$builder->groupBy('FA.id_forceaccount');
+		$query = $builder->get();
+
+		return $query->getNumRows() > 0 ? $query->getResultArray() : false;
+	}
+
+	/**
+	 * Get job details with their force account expenses total, mirrors GeneralModel::get_job_detail()
+	 * @since 04/07/2026
+	 * @author BMOTTAG
+	 */
+	public function get_job_detail_fa_expenses(array $arrData)
+	{
+		$builder = $this->db->table('job_details D');
+		$builder->select('D.*, (SELECT ROUND(SUM(F.expense_value), 2)
+			FROM forceaccount_expense F
+			WHERE F.fk_id_job_detail = D.id_job_detail) AS fa_expenses');
+
+		if (array_key_exists('idJobDetail', $arrData)) {
+			$builder->where('id_job_detail', $arrData['idJobDetail']);
+		}
+		if (array_key_exists('idJob', $arrData)) {
+			$builder->where('fk_id_job', $arrData['idJob']);
+		}
+		if (array_key_exists('chapterNumber', $arrData)) {
+			$builder->where('chapter_number', $arrData['chapterNumber']);
+		}
+		if (array_key_exists('status', $arrData)) {
+			$builder->where('status', $arrData['status']);
+		}
+		$query = $builder->get();
+
+		return $query->getNumRows() > 0 ? $query->getResultArray() : false;
+	}
+
+	/**
 	 * Insert a job detail record from CSV upload
 	 * @since 20/06/2022
 	 * @author BMOTTAG

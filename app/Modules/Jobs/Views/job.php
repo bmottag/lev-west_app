@@ -168,6 +168,7 @@ $(function(){
                                 $totalExtendedAmount = 0;
                                 $totalPercentage = 0;
                                 $totalExpenses = 0;
+                                $totalFaExpenses = 0;
                                 $totalBalance = 0;
 					?>
 
@@ -180,18 +181,20 @@ $(function(){
                                     <?php
                                         foreach ($jobDetails as $data):
                                             $class = "default";
+                                            $faExpensesTotal = $faExpensesTotalByDetail[$data['id_job_detail']] ?? 0;
                                             if($data['unit_price'] == 0){
-                                                $balance = $data['expenses'];
+                                                $balance = $data['expenses'] + $faExpensesTotal;
                                             }else{
-                                                $balance = $data['extended_amount'] - $data['expenses'];
+                                                $balance = $data['extended_amount'] - $data['expenses'] - $faExpensesTotal;
 
                                                 $veintePorciento = $data['extended_amount'] * 0.2;
                                                 $class = $balance < 0 ? "danger" : ($balance <= $veintePorciento ? "info" : "default");
                                             }
-                                            
+
                                             $totalExtendedAmount += $data['extended_amount'];
                                             $totalPercentage += $data['percentage'];
                                             $totalExpenses += $data['expenses'];
+                                            $totalFaExpenses += $faExpensesTotal;
                                             $totalBalance += $balance;
                                     ?>
                                         <div class="panel panel-<?php echo $class ?>" >
@@ -206,8 +209,12 @@ $(function(){
                                                             <span class="glyphicon glyphicon-edit" aria-hidden="true">
                                                         </button>
 
-                                                        <button type="button" class="btn btn-info btn-xs" onclick="toggleCollapse('<?php echo $data['chapter_number'] . $data['item']; ?>')">
+                                                        <button type="button" class="btn btn-info btn-xs" onclick="toggleCollapse('<?php echo $data['id_job_detail']; ?>')">
                                                             <i class="fa fa-eye"></i> W.O.
+                                                        </button>
+
+                                                        <button type="button" class="btn btn-primary btn-xs" onclick="toggleCollapse('FA<?php echo $data['id_job_detail']; ?>')">
+                                                            <i class="fa fa-eye"></i> F.A.
                                                         </button>
 
                                                         <button type="button" class="btn btn-warning btn-xs" onclick="loadClaims('<?php echo $data['id_job_detail']; ?>')">
@@ -217,7 +224,7 @@ $(function(){
                                                         <?php
                                                             echo "</td>";
 
-                                                            echo "<td width='42%'>
+                                                            echo "<td width='38%'>
                                                                     <p class='text-" . esc($class) . "'>
                                                                         <b>Description</b><br>" . esc($data['description'] ?? '') . "
                                                                     </p>
@@ -229,19 +236,19 @@ $(function(){
                                                                     </p>
                                                                 </td>";
 
-                                                            echo "<td width='8%' class='text-center'>
+                                                            echo "<td width='7%' class='text-center'>
                                                                     <p class='text-" . esc($class) . "'>
                                                                         <b>Quantity</b><br>" . esc($data['quantity'] ?? 0) . "
                                                                     </p>
                                                                 </td>";
 
-                                                            echo "<td width='8%' class='text-right'>
+                                                            echo "<td width='7%' class='text-right'>
                                                                     <p class='text-" . esc($class) . "'>
                                                                         <b>Unit Price</b><br>$ " . number_format((float)($data['unit_price'] ?? 0), 2) . "
                                                                     </p>
                                                                 </td>";
 
-                                                            echo "<td width='10%' class='text-right'>
+                                                            echo "<td width='9%' class='text-right'>
                                                                     <p class='text-" . esc($class) . "'>
                                                                         <b>Extended Amount</b><br>$ " . number_format((float)($data['extended_amount'] ?? 0), 2) . "
                                                                     </p>
@@ -253,13 +260,19 @@ $(function(){
                                                                     </p>
                                                                 </td>";
 
-                                                            echo "<td width='10%' class='text-right'>
+                                                            echo "<td width='9%' class='text-right'>
                                                                     <p class='text-" . esc($class) . "'>
                                                                         <b>W.O. Expenses</b><br>$ " . number_format((float)($data['expenses'] ?? 0), 2) . "
                                                                     </p>
                                                                 </td>";
 
                                                             echo "<td width='9%' class='text-right'>
+                                                                    <p class='text-" . esc($class) . "'>
+                                                                        <b>F.A. Expenses</b><br>$ " . number_format((float)$faExpensesTotal, 2) . "
+                                                                    </p>
+                                                                </td>";
+
+                                                            echo "<td width='8%' class='text-right'>
                                                                     <p class='text-" . esc($class) . "'>
                                                                         <b>Balance</b><br>$ " . number_format((float)($balance ?? 0), 2) . "
                                                                     </p>
@@ -270,7 +283,7 @@ $(function(){
                                                     </table>
                                                 </h4>
                                             </div>
-                                            <div id="collapse<?php echo $data['chapter_number'] . $data['item']; ?>" class="panel-collapse collapse">
+                                            <div id="collapse<?php echo $data['id_job_detail']; ?>" class="panel-collapse collapse">
                                                 <div class="panel-body">
                                                     <?php
                                                         $expenses = $expensesByDetail[$data['id_job_detail']] ?? false;
@@ -301,6 +314,45 @@ $(function(){
                                                             ?>
                                                             </tbody>
                                                         </table>
+                                                    <?php } else { ?>
+                                                        <p class="text-muted">No hay Work Orders registradas para este ítem.</p>
+                                                    <?php } ?>
+                                                </div>
+                                            </div>
+
+                                            <div id="collapseFA<?php echo $data['id_job_detail']; ?>" class="panel-collapse collapse">
+                                                <div class="panel-body">
+                                                    <?php
+                                                        $faExpenses = $forceAccountExpensesByDetail[$data['id_job_detail']] ?? false;
+
+                                                        if($faExpenses){
+                                                    ?>
+                                                        <table width="100%" class="table table-hover dataTable no-footer" id="dataTables">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th class="text-center" >F.A. #</th>
+                                                                    <th class="text-center" >Date F.A.</th>
+                                                                    <th class="text-left" >Work Done</th>
+                                                                    <th class="text-right" >Expense Value</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                            <?php
+                                                                foreach ($faExpenses as $faExpense):
+                                                                    echo "<tr>";
+                                                                    echo "<td class='text-center'>";
+                                                                    echo "<a href='" . base_url('forceaccount/add_forceaccount/' . $faExpense['id_forceaccount']) . "' target='_blank'>" . $faExpense['id_forceaccount'] . "</a>";
+                                                                    echo "</td>";
+                                                                    echo "<td class='text-center'>" . $faExpense['date'] . "</td>";
+                                                                    echo "<td class='text-left'>" . $faExpense['observation'] . "</td>";
+                                                                    echo "<td class='text-right'>$ " . number_format($faExpense['total_expenses'],2) . "</td>";
+                                                                    echo "</tr>";
+                                                                endforeach;
+                                                            ?>
+                                                            </tbody>
+                                                        </table>
+                                                    <?php } else { ?>
+                                                        <p class="text-muted">No hay Force Account registradas para este ítem.</p>
                                                     <?php } ?>
                                                 </div>
                                             </div>
@@ -314,10 +366,11 @@ $(function(){
                                         echo "<br>";
                                         echo '<table width="100%" class="table table-striped table-bordered table-hover" id="dataTables">';
                                             echo "<tr>";
-                                            echo "<td width='46%' class='text-right'><h2>Subtotal</h2></td>";
-                                            echo "<td width='30%' class='text-right'><b>Extended Amount<br>$ " . number_format($totalExtendedAmount,2) . "</b></td>";
+                                            echo "<td width='40%' class='text-right'><h2>Subtotal</h2></td>";
+                                            echo "<td width='25%' class='text-right'><b>Extended Amount<br>$ " . number_format($totalExtendedAmount,2) . "</b></td>";
                                             //echo "<td class='text-right'><b>Percentage<br>" . $totalPercentage  . "%</b></td>";
-                                            echo "<td width='15%' class='text-right'><b>W.O. Expenses<br>$ " . number_format($totalExpenses,2) . "</b></td>";
+                                            echo "<td width='13%' class='text-right'><b>W.O. Expenses<br>$ " . number_format($totalExpenses,2) . "</b></td>";
+                                            echo "<td width='13%' class='text-right'><b>F.A. Expenses<br>$ " . number_format($totalFaExpenses,2) . "</b></td>";
                                             echo "<td width='9%' class='text-right'><b>Balance<br>$ " . number_format($totalBalance,2) . "</b></td>";
                                             echo "</tr>";
 
@@ -343,13 +396,15 @@ $(function(){
                                             <th class="text-left" >Chapter</th>
                                             <th class="text-right" >Extended Amount</th>
                                             <th class="text-right" >W.O. Expenses</th>
+                                            <th class="text-right" >F.A. Expenses</th>
                                             <th class="text-right" >Balance</th>
                                         </tr>
                                     </thead>
-                                    <tbody>	
+                                    <tbody>
                                 <?php
                                 $finalTotalExtendedAmount = 0;
                                 $finalTotalExpenses = 0;
+                                $finalTotalFaExpenses = 0;
                                 $finalTotalBalance = 0;
                                 foreach ($chapterList as $lista):
                                     $jobDetails = $chapterDetails[$lista['chapter_number']] ?? false;
@@ -358,40 +413,46 @@ $(function(){
                                         $subTotalExtendedAmount = 0;
                                         $totalPercentage = 0;
                                         $subTotalExpenses = 0;
+                                        $subTotalFaExpenses = 0;
                                         $subTotalBalance = 0;
 
                                         foreach ($jobDetails as $data):
+                                            $faExpensesTotal = $faExpensesTotalByDetail[$data['id_job_detail']] ?? 0;
                                             if($data['unit_price'] == 0){
-                                                $balance = $data['expenses'];
+                                                $balance = $data['expenses'] + $faExpensesTotal;
                                             }else{
-                                                $balance = $data['extended_amount'] - $data['expenses'];
+                                                $balance = $data['extended_amount'] - $data['expenses'] - $faExpensesTotal;
                                             }
 
                                             $subTotalExtendedAmount += $data['extended_amount'];
                                             $totalPercentage += $data['percentage'];
                                             $subTotalExpenses += $data['expenses'];
+                                            $subTotalFaExpenses += $faExpensesTotal;
                                             $subTotalBalance += $balance;
                                         endforeach;
 
-                                        
+
                                         $finalTotalExtendedAmount += $subTotalExtendedAmount;
                                         $finalTotalExpenses += $subTotalExpenses;
+                                        $finalTotalFaExpenses += $subTotalFaExpenses;
                                         $finalTotalBalance += $subTotalBalance;
                                 ?>
 
                                 <?php
                                         echo "<tr>";
-                                        echo "<td width='46%' class='text-left'>" . $lista['chapter_name'] . "</td>";
-                                        echo "<td width='30%' class='text-right'>$ " . number_format($subTotalExtendedAmount,2) . "</td>";
-                                        echo "<td width='15%' class='text-right'>$ " . number_format($subTotalExpenses,2) . "</td>";
+                                        echo "<td width='38%' class='text-left'>" . $lista['chapter_name'] . "</td>";
+                                        echo "<td width='25%' class='text-right'>$ " . number_format($subTotalExtendedAmount,2) . "</td>";
+                                        echo "<td width='12%' class='text-right'>$ " . number_format($subTotalExpenses,2) . "</td>";
+                                        echo "<td width='12%' class='text-right'>$ " . number_format($subTotalFaExpenses,2) . "</td>";
                                         echo "<td width='9%' class='text-right'>$ " . number_format($subTotalBalance,2) . "</td>";
                                         echo "</tr>";
                                     }
                                 endforeach;
                                 echo "<tr>";
-                                echo "<td width='46%' class='text-right'><b>TOTAL</b></td>";
-                                echo "<td width='30%' class='text-right'><b>$ " . number_format($finalTotalExtendedAmount,2) . "</b></td>";
-                                echo "<td width='15%' class='text-right'><b>$ " . number_format($finalTotalExpenses,2) . "</b></td>";
+                                echo "<td width='38%' class='text-right'><b>TOTAL</b></td>";
+                                echo "<td width='25%' class='text-right'><b>$ " . number_format($finalTotalExtendedAmount,2) . "</b></td>";
+                                echo "<td width='12%' class='text-right'><b>$ " . number_format($finalTotalExpenses,2) . "</b></td>";
+                                echo "<td width='12%' class='text-right'><b>$ " . number_format($finalTotalFaExpenses,2) . "</b></td>";
                                 echo "<td width='9%' class='text-right'><b>$ " . number_format($finalTotalBalance,2) . "</b></td>";
                                 echo "</tr>";
                                 ?>
